@@ -34,3 +34,17 @@ Route::prefix('/user')->group(function () {
 
 
 
+// admin 
+Route::prefix('admin')->group(function () {
+    // trang hiển thị mặc định tất cả voucher
+    Route::get('/voucher', [VoucherController::class, 'index'])->name('voucher-index');
+    // trang trả ra kết quả tìm kiếm
+    Route::post('/voucher', [VoucherController::class, 'findVoucherAdmin'])->name('admin-voucher-timkiem');
+
+    // Thêm voucher
+    Route::post('/addvoucher', [VoucherController::class, 'store'])->name('them-voucher');
+    // Xoá voucher
+    Route::post('/deletevoucher/{id_voucher}', [VoucherController::class, 'destroy'])->name('xoa-voucher');
+    // Sửa voucher
+    Route::post('/editvoucher/{id_voucher}', [VoucherController::class, 'update'])->name('sua-voucher');
+});
