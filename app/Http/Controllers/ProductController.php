@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -15,9 +15,9 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        $productBestSale = Product::orderBy('count_buy', 'desc')->limit(5)->get();
+        $productBestSale = DB::table('products')->orderBy('count_buy', 'desc')->limit(4)->get();
 
-        $productsLLatest = Product::orderBy('count_buy', 'asc')->limit(3)->get();
+        $productsLLatest = DB::table('products')->orderBy('count_buy', 'asc')->limit(3)->get();
 
         return view('homepage', compact('productBestSale', 'productsLLatest'));
     }

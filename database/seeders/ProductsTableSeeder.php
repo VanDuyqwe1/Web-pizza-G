@@ -24,7 +24,7 @@ class ProductsTableSeeder extends Seeder
 ', 'count_buy' => '11', 'category_id' => 5,], ['name' => 'Pizza Bò &amp; Tôm Nướng Kiểu Mỹ - Surf &amp; Turf
 ', 'image' => 'Surf-turf-thong-tin.jpg',  'quantity' => '100', 'description' => 'Xốt Cà Chua, Xốt Phô Mai, Phô Mai Mozzarella, Tôm, Thịt Bò Mexico, Cà Chua, Hành Tây
 ', 'price' => '209000
-', 'count_buy' => '64', 'category_id' => 3,], ['name' => 'Pizza Bò Mê-Hi-Cô Thượng Hạng - Prime Beef
+', 'count_buy' => '68', 'category_id' => 3,], ['name' => 'Pizza Bò Mê-Hi-Cô Thượng Hạng - Prime Beef
 ', 'image' => 'Prime-beef-thong-tin.jpg',  'quantity' => '100', 'description' => 'Xốt phô mai, Xốt cà chua, bò viên kiểu Ý, thịt bò Mexico, hành tây, cà chua, phô mai Mozzarella
 ', 'price' => '209000
 ', 'count_buy' => '53', 'category_id' => 3,], ['name' => 'Pizza Rau Củ Thập Cẩm - Veggie Mania
