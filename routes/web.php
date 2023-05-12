@@ -2,13 +2,10 @@
 
 
 use App\Http\Controllers\ProductController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
-
-
 use App\Http\Controllers\VoucherController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BillController;
+use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -23,8 +20,8 @@ use App\Http\Controllers\BillController;
 */
 
 
-Route::get('/', [ProductController::class, 'index']);
-=======
+// Route::get('/', [ProductController::class, 'index']);
+
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
 Route::get('/', [CustomAuthController::class, 'dashboard']); 
 
@@ -43,13 +40,6 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 //  Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/tracking', [BillController::class, 'index']);
 Route::get('/tracking/{slug}/{id_status}', [BillController::class, 'show'])->name('tracking_custom');
