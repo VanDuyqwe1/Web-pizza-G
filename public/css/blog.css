@@ -1,0 +1,10 @@
+.blog-header .type-1602{
+    max-height: 150px !important;
+    overflow: hidden;
+}
+.blog-header .type-1602 .context{
+    display: none;
+}
+.blog-main{
+    margin-top: 50px;
+}
