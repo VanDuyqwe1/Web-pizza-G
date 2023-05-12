@@ -75,10 +75,62 @@ class CustomAuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('changeuser');
+
+            //return view('changeuser');
+
+            return view('dashboard');
         }
   
         return redirect("login")->withSuccess('You are not allowed to access');
+    }
+    
+    public function voucher()
+    {
+       
+            return view('voucher');
+        
+  
+      
+    }
+    public function promotion()
+    {
+       
+            return view('promotion');
+        
+  
+      
+    }
+    public function menu()
+    {
+       
+            return view('menu');
+        
+  
+      
+    }
+    public function orderTracking()
+    {
+       
+            return view('orderTracking');
+        
+  
+      
+    }
+    public function storeListing()
+    {
+       
+            return view('storeListing');
+        
+  
+      
+    }
+    public function blog()
+    {
+       
+            return view('blog');
+        
+  
+      
     }
     
     public function signOut() {
