@@ -34,16 +34,7 @@ class Admin extends Base implements AuthenticatableContract
                     'name' => "Email",
                     'type' => 'text'
                 ),
-                array (
-                    'field' => "created_at",
-                    'name' => "created_at",
-                    'type' => 'text'
-                ),
-                array (
-                    'field' => "updated_at",
-                    'name' => "updated_at",
-                    'type' => 'text'
-                ),
+              
                 
                
             );

@@ -139,6 +139,16 @@ class Base extends Model
     public function defaultListingConfigs()
     {
         return array(
+            array (
+                'field' => "created_at",
+                'name' => "created_at",
+                'type' => 'text'
+            ),
+            array (
+                'field' => "updated_at",
+                'name' => "updated_at",
+                'type' => 'text'
+            ),
 
             array(
                 'field' => "copy",
