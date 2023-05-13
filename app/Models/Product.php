@@ -32,8 +32,10 @@ class Product extends Base
                 'type' => 'text',
                 'filter' => 'like',
                 'listing' => true,
-                'editing' => true
+                'editing' => true,
+                'validate' => 'required|max:100'
             ),
+            
             array(
                 'field' => "image",
                 'name' => "Ảnh sản phẩm",
@@ -45,10 +47,11 @@ class Product extends Base
             array(
                 'field' => "quantity",
                 'name' => "Số lượng sản phẩm",
-                'type' => 'text',
+                'type' => 'number',
                 'filter' => 'equal',
                 'listing' => true,
-                'editing' => true
+                'editing' => true,
+                'validate' => 'required|Numeric'
             ),
             array(
                 'field' => "price",
@@ -56,7 +59,8 @@ class Product extends Base
                 'type' => 'number',
                 'filter' => 'between',
                 'listing' => true,
-                'editing' => true
+                'editing' => true,
+                'validate' => 'required|Numeric'
             ),
             // array(
             //     'field' => "count_buy",

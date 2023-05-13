@@ -24,20 +24,28 @@ class EditingProductController extends Controller
 
     public function store(Request $request, $modelName)
     {
-        if ($request->hasFile('image')) {
-            
-            
-           $path = $request->file('image')->storeAs(
-            'product','test.jpg'
-           );
-           echo $path;exit; 
-        }
-       
-       
         $adminUser = Auth::guard('admin')->user();
         //doi duong dan co 
         $model = '\App\Models\\' . ucfirst($modelName);
         $model =  new $model;
+        $configs = $model->editingConfigs();
+        //bắt validatedd
+        $arrayValidateFields = [];
+        foreach ($configs as $config) {
+            if (!empty($config['validate'])) {
+                $arrayValidateFields[$config['field']] = $config['validate'];
+            }
+        }
+       
+        $validated = $request->validate($arrayValidateFields);
+           
+        
+        echo "valied suxx";
+        //báo lỗi
+
+        
+       
+       
     }
 
 
