@@ -21,22 +21,21 @@ Route::get('/', function () {
     return view('admin.login');
 });
 
-Route::get('admin/login',function() {
+Route::get('admin/login', function () {
     return view('admin.login');
 });
 
-Route::post('/admin/login',[AdminController::class,'loginPost'])->name('admin.loginPost');
-Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
+Route::post('/admin/login', [AdminController::class, 'loginPost'])->name('admin.loginPost');
+Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
+//nqt: middleware admin
 
-Route::middleware(['admin'])->group(function ()
-{
-    Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
-Route::get('/admin/statistics',[AdminController::class,'statistics'])->name('admin.statistics');
-});
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/admin/statistics', [AdminController::class, 'statistics'])->name('admin.statistics');
 //nqt: quan tri san pham
-Route::get("/admin/listing/{model}",[ListingController::class,'index'])->name('listing.index');
-Route::post("/admin/listing/{model}",[ListingController::class,'index'])->name('listing.index');
-Route::get("/admin/editing/{model}",[EditingProductController::class,'create'])->name('editing.create');
-Route::post("/admin/editing/{model}",[EditingProductController::class,'store'])->name('editing.store');
-
+Route::get("/admin/listing/{model}", [ListingController::class, 'index'])->name('listing.index');
+Route::post("/admin/listing/{model}", [ListingController::class, 'index'])->name('listing.index');
+Route::get("/admin/editing/{model}", [EditingProductController::class, 'create'])->name('editing.create');
+Route::post("/admin/editing/{model}", [EditingProductController::class, 'store'])->name('editing.store');
+});
