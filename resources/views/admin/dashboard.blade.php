@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Spica Admin</title>
+    <title>Tomato's Pizza Admin</title>
     <!-- base:css -->
     <!-- <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css"> -->
     <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
@@ -47,7 +47,7 @@
                                 <a class="nav-link" href="{{route('listing.index',['model'=>'Product'])}}">
                                     <i class="mdi mdi-view-quilt menu-icon"></i>
                                     <span class="menu-title">Products</span>
-                                    <div class="badge badge-info badge-pill">2</div>
+                                    <div class="badge badge-info badge-pill">1</div>
                                 </a>
                                 <a class="nav-link" href="{{route('listing.index',['model'=>'Admin'])}}">
                                     <i class="mdi mdi-view-quilt menu-icon"></i>
@@ -183,12 +183,12 @@
 
 
     <!-- footer content -->
-    <footer>
+    <!-- <footer>
         <div class="pull-right">
             Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
         </div>
         <div class="clearfix"></div>
-    </footer>
+    </footer> -->
     <!-- /footer content -->
     </div>
     </div>

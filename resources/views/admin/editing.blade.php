@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Spica Admin</title>
+    <title>Tomato's Pizza Admin</title>
     <!-- base:css -->
     <!-- <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css"> -->
     <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
@@ -17,32 +17,7 @@
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" />
-    <!-- bootstrap links -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- bootstrap links -->
-    <!-- fonts links -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <!-- fonts links -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- bootstrap links -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- bootstrap links -->
-    <!-- fonts links -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <!-- fonts links -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap" rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="{{asset('vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -54,14 +29,13 @@
 
     <!-- Custom Theme Style -->
     <link href="{{asset('build/css/custom.min.css')}}" rel="stylesheet">
-
 </head>
 
 
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="container-scroller d-flex">
                     <nav class="sidebar sidebar-offcanvas" id="sidebar">
                         <ul class="nav">
@@ -161,140 +135,132 @@
                 </div>
 
             </div>
-            <div class="col-md-10 ">
-                <h3><?= $title ?></h3>
-                <div class="filter-item d-flex flex-wrap" style="display: inline-block;">
-                    <!-- tìm kiếm -->
+            <div class="col-md-9">
+                <div class="row" style="display: block;">
 
-                    <form action="{{route('listing.index',['model'=>'Product'])}}" method="POST" class="filter-form">
-                        @csrf
-                        <fieldset>
-                            <legend> Tìm Kiếm:</legend>
-                            <?php
-                            foreach ($configs as $config) {
-
-                                if (!empty($config['filter'])) {
-                                    switch ($config['filter']) {
-                                        case "equal": ?>
-                                            <!-- <div class="filter-item"></div> -->
-                                            <label for="fname"><?= $config['name'] ?>: </label>
-                                            <input type="text" id="fname" name=" <?= $config['field'] ?>" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
-
-
-
-
-                                        <?php
-                                            break;
-                                        case "like": ?>
-                                            <!-- <div class="filter-item"> </div> -->
-                                            <label for="fname"><?= $config['name'] ?>: </label>
-                                            <input type="text" id="fname" name=" <?= $config['field'] ?>" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
-
-
-
-                                        <?php
-                                            break;
-                                        case "between": ?>
-                                            <!-- <div class="filter-item"></div> -->
-                                            <label for="gia"><?= $config['name'] ?>từ:</label>
-                                            <input type="text" id="gia" name="<?= $config['field'] ?>[from]" value="<?= (!empty($configs['filter_from_value'])) ? ($configs['filter_from_value']) : "" ?>">
-                                            <label for="to">đến:</label>
-                                            <input type="text" id="gia" name="<?= $config['field'] ?>[to]" value="<?= (!empty($configs['filter_to_value'])) ? ($configs['filter_to_value']) : "" ?>">
-
-
-
-                            <?php
-                                            break;
-                                    }
-                                }
-                            }
-
-                            ?>
-
-
-
-                            <input type="submit" value="Tìm">
-                        </fieldset>
-                    </form>
-                </div>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <?php foreach ($configs as $config) { ?>
-                                <th><?= $config['name'] ?></th>
-                            <?php } ?>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($records as $record) { ?>
-                            <tr>
-                                <?php foreach ($configs as $config) { ?>
-                                    <?php switch ($config['type']) {
-                                        case "text":
-                                    ?>
-                                            <td><?= $record[$config['field']] ?></td>
-
-                                        <?php
-                                            break;
-                                        case "image": ?>
-                                            <td><img onerror="this.src='/images_admin/choco.jpg'" src="<?= $record[$config['field']] ?>"></td>
-
-                                        <?php
-                                            break;
-                                        case "number": ?>
-                                            <td><?= number_format($record[$config['field']], 0, ',', ',') ?></td>
-
-                                        <?php
-                                            break;
-                                        case "copy": ?>
-                                            <td><a href="#" style="text-decoration: none; color: black;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16">
-                                                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
-                                                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
-                                                    </svg>Copy</a></td>
-                                        <?php
-                                            break;
-                                        case "edit": ?>
-                                            <td><a href="#" style="text-decoration: none; color: black;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                                    </svg>Sửa</a></td>
-                                        <?php
-                                            break;
-                                        case "delete": ?>
-                                            <td><a href="#" style="text-decoration: none; color: black;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                                                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
-                                                    </svg>Xóa</a></td>
+                    <div class="col-md-6 ">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Editing Product Form </h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Settings 1</a>
+                                            <a class="dropdown-item" href="#">Settings 2</a>
+                                        </div>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <br />
+                                <form class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data" action="{{route('editing.store',['model'=>'Product'])}}">
+                                    @csrf
                                     <?php
-                                            break;
-                                    } ?>
+                                    if (!empty($configs)) {
+                                        foreach ($configs as $config) {
+                                            switch ($config['type']) {
+                                                case 'text':
+                                    ?>
+                                                    <div class="form-group row ">
+                                                        <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
+                                                        <div class="col-md-9 col-sm-9 ">
+                                                            <input type="text" class="form-control" name="<?= $config['field']  ?>" placeholder="<?= htmlspecialchars($config['name']) ?>">
+                                                        </div>
+                                                    </div>
+                                                <?php
 
-                                <?php } ?>
-                            </tr>
-                        <?php } ?>
+                                                    break;
+                                                case 'number':
+                                                ?>
+                                                    <div class="form-group row ">
+                                                        <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
+                                                        <div class="col-md-9 col-sm-9 ">
+                                                            <input type="text" class="form-control" name="<?= $config['field']  ?>" placeholder="<?= htmlspecialchars($config['name']) ?>">
+                                                        </div>
+                                                    </div>
+                                                <?php
 
-                    </tbody>
-                </table>
-                <?= $records->links("pagination::bootstrap-4") ?>
+                                                    break;
+                                                case 'image':
+                                                ?>
+                                                    <div class="form-group row ">
+                                                        <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
+                                                        <div class="col-md-9 col-sm-9 ">
+                                                            <input type="file" name="<?= $config['field']  ?>" />
+                                                        </div>
+                                                    </div>
+                                    <?php
+
+                                                    break;
+                                            }
+                                        }
+                                    }
+                                    ?>
+
+
+
+                                    <div class="form-group row">
+                                        <label class="control-label col-md-3 col-sm-3 ">Nội dung sản phẩm <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-9 col-sm-9 ">
+                                            <textarea class="form-control" rows="3" placeholder="Nội dung sản phẩm"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="control-label col-md-3 col-sm-3 ">Miêu tả sản phẩm <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-9 col-sm-9 ">
+                                            <textarea class="form-control" rows="3" placeholder="Miêu tả sản phẩm"></textarea>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-9 col-sm-9  offset-md-3">
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
-        <div class="clearfix"></div>
+        <!-- /page content -->
+
+
+
+
     </div>
-    </div>
-    </div>
-    <!-- /page content -->
-    </div>
-    </div>
-    </div>
+
+
+
+
     <!-- footer content -->
-    <footer>
+    <!-- <footer>
         <div class="pull-right">
             Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
         </div>
         <div class="clearfix"></div>
-    </footer>
+    </footer> -->
     <!-- /footer content -->
-
+    </div>
+    </div>
 
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
@@ -310,5 +276,34 @@
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
 </body>
+
+</html>
+
+
+
+<!-- base:js -->
+
+<script src="vendors/js/vendor.bundle.base.js"></script>
+
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="vendors/chart.js/Chart.min.js"></script>
+<script src="js/jquery.cookie.js" type="text/javascript"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="js/off-canvas.js"></script>
+<script src="js/hoverable-collapse.js"></script>
+<script src="js/template.js"></script>
+<!-- endinject -->
+<!-- plugin js for this page -->
+<script src="js/jquery.cookie.js" type="text/javascript"></script>
+<!-- End plugin js for this page -->
+<!-- Custom js for this page-->
+<script src="js/dashboard.js"></script>
+<!-- End custom js for this page-->
+
+
+</body>
+
 
 </html>
