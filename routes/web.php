@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\EditingProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,4 +36,5 @@ Route::get('/admin/statistics',[AdminController::class,'statistics'])->name('adm
 });
 //nqt: quan tri san pham
 Route::get("/admin/listing/{model}",[ListingController::class,'index'])->name('listing.index');
-Route::post("/admin/listing/{model}",[ListingController::class,'index'])->name('listing.index');
+Route::get("/admin/listing/{model}",[ListingController::class,'index'])->name('listing.index');
+Route::get("/admin/editing/{model}",[EditingProductController::class,'create'])->name('listing.create');
