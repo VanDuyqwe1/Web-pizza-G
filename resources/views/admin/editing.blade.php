@@ -142,78 +142,66 @@
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2>Editing Product Form </h2>
-                                <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Settings 1</a>
-                                            <a class="dropdown-item" href="#">Settings 2</a>
-                                        </div>
-                                    </li>
-                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                    </li>
-                                </ul>
-                                <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <br />
-                                <form class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data" action="{{route('editing.store',['model'=>'Product'])}}">
-                                    @csrf
-                                    <?php
-                                    if (!empty($configs)) {
-                                        foreach ($configs as $config) {
-                                            switch ($config['type']) {
-                                                case 'text':
-                                                    $field = $config['field'];
-                                    ?>
-                                                    <div class="form-group row ">
-                                                        <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
-                                                        <div class="col-md-9 col-sm-9 ">
-                                                            <input type="text" class="form-control" name="<?= $config['field']  ?>" placeholder="<?= htmlspecialchars($config['name']) ?>" class="@error($field) is-invalid @enderror">
-                                                            @error($field)
-                                                            <div class="alert alert-danger">{{$message}}</div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                <?php
+                                <?php
+                                if (!empty($success)) { ?>
+                                    <h3>Thêm sản phẩm thành công.</h3><a href="/admin/listing/Product">Danh sách sản phẩm</a>
+                                <?php } else { ?>
 
-                                                    break;
-                                                case 'number':
-                                                    $field = $config['field'];
-                                                ?>
-                                                    <div class="form-group row ">
-                                                        <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
-                                                        <div class="col-md-9 col-sm-9 ">
-                                                            <input type="text" class="f8orm-control" name="<?= $config['field']  ?>" placeholder="<?= htmlspecialchars($config['name']) ?>" class="@error($field) is-invalid @enderror">
-                                                            @error($field)
-                                                            <div class="alert alert-danger">{{$message}}</div>
-                                                            @enderror
+                                    <br />
+                                    <form class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data" action="{{route('editing.store',['model'=>'Product'])}}">
+                                        @csrf
+                                        <?php
+                                        if (!empty($configs)) {
+                                            foreach ($configs as $config) {
+                                                switch ($config['type']) {
+                                                    case 'text':
+                                                        $field = $config['field'];
+                                        ?>
+                                                        <div class="form-group row ">
+                                                            <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
+                                                            <div class="col-md-9 col-sm-9 ">
+                                                                <input type="text" class="form-control" name="<?= $config['field']  ?>" placeholder="<?= htmlspecialchars($config['name']) ?>" class="@error($field) is-invalid @enderror" />
+                                                                @error($field)
+                                                                <div class="alert alert-danger">{{$message}}</div>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                <?php
+                                                    <?php
 
-                                                    break;
-                                                case 'image':
-                                                ?>
-                                                    <div class="form-group row ">
-                                                        <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
-                                                        <div class="col-md-9 col-sm-9 ">
-                                                            <input type="file" name="<?= $config['field']  ?>" />
+                                                        break;
+                                                    case 'number':
+                                                        $field = $config['field'];
+                                                    ?>
+                                                        <div class="form-group row ">
+                                                            <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
+                                                            <div class="col-md-9 col-sm-9 ">
+                                                                <input type="text" class="f8orm-control" name="<?= $config['field']  ?>" placeholder="<?= htmlspecialchars($config['name']) ?>" class="@error($field) is-invalid @enderror" />
+                                                                @error($field)
+                                                                <div class="alert alert-danger">{{$message}}</div>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                    <?php
+                                                    <?php
 
-                                                    break;
+                                                        break;
+                                                    case 'image':
+                                                    ?>
+                                                        <div class="form-group row ">
+                                                            <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
+                                                            <div class="col-md-9 col-sm-9 ">
+                                                                <input type="file" name="<?= $config['field'] ?>" />
+                                                            </div>
+                                                        </div>
+                                            <?php
+
+                                                        break;
+                                                }
                                             }
-                                        }
-                                    }
-                                    ?>
 
-
-
-                                    <div class="form-group row">
+                                            ?>
+                                            <!-- <div class="form-group row">
                                         <label class="control-label col-md-3 col-sm-3 ">Nội dung sản phẩm <span class="required">*</span>
                                         </label>
                                         <div class="col-md-9 col-sm-9 ">
@@ -226,21 +214,18 @@
                                         <div class="col-md-9 col-sm-9 ">
                                             <textarea class="form-control" rows="3" placeholder="Miêu tả sản phẩm"></textarea>
                                         </div>
-                                    </div>
+                                    </div> -->
 
+                                            <div class="ln_solid"></div>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-sm-9  offset-md-3">
+                                                    <button type="submit" class="btn btn-success">Submit</button>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
 
-
-
-
-
-                                    <div class="ln_solid"></div>
-                                    <div class="form-group">
-                                        <div class="col-md-9 col-sm-9  offset-md-3">
-                                            <button type="submit" class="btn btn-success">Submit</button>
-                                        </div>
-                                    </div>
-
-                                </form>
+                                    </form>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
