@@ -166,22 +166,30 @@
                                         foreach ($configs as $config) {
                                             switch ($config['type']) {
                                                 case 'text':
+                                                    $field = $config['field'];
                                     ?>
                                                     <div class="form-group row ">
                                                         <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
                                                         <div class="col-md-9 col-sm-9 ">
-                                                            <input type="text" class="form-control" name="<?= $config['field']  ?>" placeholder="<?= htmlspecialchars($config['name']) ?>">
+                                                            <input type="text" class="form-control" name="<?= $config['field']  ?>" placeholder="<?= htmlspecialchars($config['name']) ?>" class="@error($field) is-invalid @enderror">
+                                                            @error($field)
+                                                            <div class="alert alert-danger">{{$message}}</div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 <?php
 
                                                     break;
                                                 case 'number':
+                                                    $field = $config['field'];
                                                 ?>
                                                     <div class="form-group row ">
                                                         <label class="control-label col-md-3 col-sm-3 "><?= $config['name'] ?> <span class="required">*</span></label>
                                                         <div class="col-md-9 col-sm-9 ">
-                                                            <input type="text" class="form-control" name="<?= $config['field']  ?>" placeholder="<?= htmlspecialchars($config['name']) ?>">
+                                                            <input type="text" class="f8orm-control" name="<?= $config['field']  ?>" placeholder="<?= htmlspecialchars($config['name']) ?>" class="@error($field) is-invalid @enderror">
+                                                            @error($field)
+                                                            <div class="alert alert-danger">{{$message}}</div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 <?php
