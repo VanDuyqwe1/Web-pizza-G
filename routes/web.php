@@ -36,7 +36,7 @@ Route::get('/admin/statistics',[AdminController::class,'statistics'])->name('adm
 });
 //nqt: quan tri san pham
 Route::get("/admin/listing/{model}",[ListingController::class,'index'])->name('listing.index');
-Route::get("/admin/listing/{model}",[ListingController::class,'index'])->name('listing.index');
+Route::post("/admin/listing/{model}",[ListingController::class,'index'])->name('listing.index');
 Route::get("/admin/editing/{model}",[EditingProductController::class,'create'])->name('editing.create');
 Route::post("/admin/editing/{model}",[EditingProductController::class,'store'])->name('editing.store');
 
