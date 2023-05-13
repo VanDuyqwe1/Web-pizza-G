@@ -54,6 +54,11 @@
                                     <span class="menu-title">Admins</span>
                                     <div class="badge badge-info badge-pill">2</div>
                                 </a>
+                                <a class="nav-link" href="{{route('listing.index',['model'=>'Admin'])}}">
+                                    <i class="mdi mdi-view-quilt menu-icon"></i>
+                                    <span class="menu-title">Users</span>
+                                    <div class="badge badge-info badge-pill">3</div>
+                                </a>
                             </li>
 
                             <li class="nav-item sidebar-category">
@@ -122,9 +127,9 @@
                                 <span></span>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="docs/documentation.html">
+                                <a class="nav-link" href="{{route('admin.logout',['model'=>'Product'])}}">
                                     <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                                    <span class="menu-title">Documentation</span>
+                                    <span class="menu-title">LogOut</span>
                                 </a>
                             </li>
                         </ul>
@@ -201,7 +206,7 @@
                                             }
 
                                             ?>
-                                            <!-- <div class="form-group row">
+                                            <div class="form-group row">
                                         <label class="control-label col-md-3 col-sm-3 ">Nội dung sản phẩm <span class="required">*</span>
                                         </label>
                                         <div class="col-md-9 col-sm-9 ">
@@ -214,7 +219,7 @@
                                         <div class="col-md-9 col-sm-9 ">
                                             <textarea class="form-control" rows="3" placeholder="Miêu tả sản phẩm"></textarea>
                                         </div>
-                                    </div> -->
+                                    </div>
 
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
