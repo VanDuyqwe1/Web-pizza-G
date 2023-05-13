@@ -9,6 +9,29 @@ use Illuminate\Support\Facades\Cookie;
 class Base extends Model
 {
     use HasFactory;
+    public function listingConfigs()
+    {
+       
+        return $this->getConfigs('listing');
+    }
+    public function editingConfigs()
+    {
+        return $this ->getConfigs('editing');
+    }
+
+    public function getConfigs($interface)
+    {
+        $configs = $this ->configs();
+        $result = [];
+        foreach ($configs as  $config) {
+           if (!empty($configs['listing']) == true) {
+            $result[] = $config;
+           }
+        }
+
+        return $configs;
+    }
+
     public function getRecords($conditions)
     {
         $per_page = 10;

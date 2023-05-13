@@ -9,7 +9,7 @@ class Product extends Base
 {
     use HasFactory;
     public $title = "Sản phẩm";
-    public function listingConfigs()
+    public function configs()
     {
         $defaultListingConfigs = parent::defaultListingConfigs();
 
@@ -19,7 +19,10 @@ class Product extends Base
             //     'field' => "Category_id",
             //     'name' => "Category_id",
             //     'type' => 'text',
-            //     'filter' => 'equal'
+            //     'filter' => 'equal',
+            //     'listing' => true,
+            //     'editing' => false
+
 
             // ),
 
@@ -27,31 +30,48 @@ class Product extends Base
                 'field' => "name",
                 'name' => "Tên sản phẩm",
                 'type' => 'text',
-                'filter' => 'like'
+                'filter' => 'like',
+                'listing' => true,
+                'editing' => true
             ),
             array(
                 'field' => "image",
                 'name' => "Ảnh sản phẩm",
-                'type' => 'image'
+                'type' => 'image',
+                'listing' => true,
+                'editing' => true
             ),
 
             array(
                 'field' => "quantity",
                 'name' => "Số lượng sản phẩm",
                 'type' => 'text',
-                'filter' => 'equal'
+                'filter' => 'equal',
+                'listing' => true,
+                'editing' => true
             ),
             array(
                 'field' => "price",
                 'name' => "Giá sản phẩm",
                 'type' => 'number',
-                'filter' => 'between'
+                'filter' => 'between',
+                'listing' => true,
+                'editing' => true
             ),
-            array(
-                'field' => "count_buy",
-                'name' => "count buy",
-                'type' => 'text'
-            )
+            // array(
+            //     'field' => "count_buy",
+            //     'name' => "count buy",
+            //     'type' => 'text',
+            //     'listing' => false,
+            //     'editing' => false
+            // ),
+            // array(
+            //     'field' => "content",
+            //     'name' => "content",
+            //     'type' => 'text',
+            //     'listing' => true,
+            //     'editing' => true
+            // )
 
 
         );
