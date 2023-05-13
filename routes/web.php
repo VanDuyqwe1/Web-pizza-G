@@ -17,6 +17,8 @@ use App\Http\Controllers\EditingProductController;
 |
 */
 
+
+// nqt: quan tri admin//
 Route::get('/', function () {
     return view('admin.login');
 });
@@ -39,3 +41,5 @@ Route::post("/admin/listing/{model}", [ListingController::class, 'index'])->name
 Route::get("/admin/editing/{model}", [EditingProductController::class, 'create'])->name('editing.create');
 Route::post("/admin/editing/{model}", [EditingProductController::class, 'store'])->name('editing.store');
 });
+
+//nqt:quan tri admin//
