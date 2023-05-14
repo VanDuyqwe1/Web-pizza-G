@@ -207,19 +207,19 @@
 
                                             ?>
                                             <div class="form-group row">
-                                        <label class="control-label col-md-3 col-sm-3 ">Nội dung sản phẩm <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-9 col-sm-9 ">
-                                            <textarea class="form-control" rows="3" placeholder="Nội dung sản phẩm"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="control-label col-md-3 col-sm-3 ">Miêu tả sản phẩm <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-9 col-sm-9 ">
-                                            <textarea class="form-control" rows="3" placeholder="Miêu tả sản phẩm"></textarea>
-                                        </div>
-                                    </div>
+                                                <label class="control-label col-md-3 col-sm-3 ">Nội dung sản phẩm <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-9 col-sm-9 ">
+                                                    <textarea class="form-control" rows="3" placeholder="Nội dung sản phẩm"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="control-label col-md-3 col-sm-3 ">Miêu tả sản phẩm <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-9 col-sm-9 ">
+                                                    <textarea class="form-control" rows="3" placeholder="Miêu tả sản phẩm"></textarea>
+                                                </div>
+                                            </div>
 
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
