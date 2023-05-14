@@ -177,37 +177,23 @@
                             <legend> Tìm Kiếm:</legend>
                             <?php
                             foreach ($configs as $config) {
-
                                 if (!empty($config['filter'])) {
                                     switch ($config['filter']) {
                                         case "equal": ?>
-                                            <!-- <div class="filter-item"></div> -->
                                             <label for="fname"><?= $config['name'] ?>: </label>
-                                            <input type="text" id="fname" name=" <?= $config['field'] ?>" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
-
-
-
-
-                                        <?php
+                                            <input type="text" name=" <?= $config['field'] ?>" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
+                            <?php
                                             break;
                                         case "like": ?>
-                                            <!-- <div class="filter-item"> </div> -->
                                             <label for="fname"><?= $config['name'] ?>: </label>
-                                            <input type="text" id="fname" name=" <?= $config['field'] ?>" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
-
-
-
-                                        <?php
+                                            <input type="text" name=" <?= $config['field'] ?>" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
+                            <?php
                                             break;
-                                        case "between": ?>
-                                            <!-- <div class="filter-item"></div> -->
-                                            <label for="gia"><?= $config['name'] ?>từ:</label>
-                                            <input type="text" id="gia" name="<?= $config['field'] ?>[from]" value="<?= (!empty($configs['filter_from_value'])) ? ($configs['filter_from_value']) : "" ?>">
-                                            <label for="to">đến:</label>
-                                            <input type="text" id="gia" name="<?= $config['field'] ?>[to]" value="<?= (!empty($configs['filter_to_value'])) ? ($configs['filter_to_value']) : "" ?>">
-
-
-
+                                        case "between": ?><br>
+                                            <label for="fname"><?= $config['name'] ?> từ : </label>
+                                            <input type="text" name=" <?= $config['field'] ?>" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
+                                            <label for="fname"><?= $config['name'] ?> đến : </label>
+                                            <input type="text" name=" <?= $config['field'] ?>" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
                             <?php
                                             break;
                                     }
@@ -215,10 +201,12 @@
                             }
 
                             ?>
+                            
 
 
 
-                            <input type="submit" value="Tìm">
+                            <input type="submit" value="Tìm sản phẩm">
+                            <input type="submit" value="Thêm sản phẩm">
                         </fieldset>
                     </form>
                 </div>
@@ -243,7 +231,8 @@
                                         <?php
                                             break;
                                         case "image": ?>
-                                            <td><img onerror="this.src='/images_admin/choco.jpg'" src="<?= $record[$config['field']] ?>"></td>
+                                            <!-- upload image -->
+                                            <td><img height="75" onerror="this.src='/images_admin/choco.jpg'" src="<?= $record[$config['field']] ?>"></td>
 
                                         <?php
                                             break;
