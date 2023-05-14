@@ -18,7 +18,7 @@ class AdminController extends Controller
     public function index()
     {
         //Đọc database bảng users, sắp xếp theo id, lấy 10 id
-       $data = DB::table('users')->orderBy('id','asc')->paginate(2);
+       $data = DB::table('users')->orderBy('id','asc')->paginate(10);
     //    return về V(list of users), cái $data
        return view('listofusers',compact('data'));
     } 

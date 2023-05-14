@@ -43,39 +43,39 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    // public function edit(string $id)
-    // {
-    //     //
-    //     $user = User::find($id);
-    //     return  view('edituser', compact('user'));
-    // }
+    public function edit(string $id)
+    {
+        //
+        $user = User::find($id);
+        return  view('edituser', compact('user'));
+    }
 
     /**
      * Update the specified resource in storage.
      */
-    // public function update(Request $request, string $id)
-    // {
-    //     //
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required|email',
-    //     ]);
-    //     $user = User::find($id);
-    //     $user->name = $request->name;
-    //     $user->email = $request->email;
-    //     $user->phone = $request->phone;
-    //     if(request()->hasfile('avatar')){
-    //         if (File::exists("avatars"  . "/" . $user->avatar)) {
-    //             File::delete("avatars"  . "/" . $user->avatar);
-    //         }
-    //         $avatarName = time().'.'.request()->avatar->getClientOriginalExtension();
-    //         request()->avatar->move(public_path('avatars'), $avatarName);
-    //         $user->avatar = $avatarName;
-    //     }
-    //     if ($user->save()) {
-    //         return redirect()->route('list.user');
-    //     }
-    // }
+    public function update(Request $request, string $id)
+    {
+        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        if(request()->hasfile('avatar')){
+            if (File::exists("avatars"  . "/" . $user->avatar)) {
+                File::delete("avatars"  . "/" . $user->avatar);
+            }
+            $avatarName = time().'.'.request()->avatar->getClientOriginalExtension();
+            request()->avatar->move(public_path('avatars'), $avatarName);
+            $user->avatar = $avatarName;
+        }
+        if ($user->save()) {
+            return redirect()->route('list.user');
+        }
+     }
 
     /**
      * Delete user.
@@ -92,11 +92,15 @@ class UserController extends Controller
 
     //Tim kiem users
     
-    // public function searchUsers(Request $request)
-    // {
+    public function searchUsers(Request $request)
+    {
       
-    //     $keyword = $request->name;
-    //     $user =  User::query()->where('name', 'LIKE', '%' . $keyword . '%')->get();
-    //     return view('listofusers', compact('user'));
-    // }
+        $keyword = $request->name;
+        $user =  User::query()->where('name', 'LIKE', '%' . $keyword . '%')->orWhere('phone', 'LIKE', '%'
+        . $keyword . '%')->get();
+        //$number_phone =  User::query()->where('phone', 'LIKE', '%' . $keyword . '%')->get();
+        
+        
+        return view('listofusers', compact('user'));
+    }
 }
