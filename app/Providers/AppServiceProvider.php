@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-use Illuminate\Pagination\Paginator;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,8 +19,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //bootstrap phân trang laravel
-        Paginator::useBootstrapFive();
-    Paginator::useBootstrapFour();
+        //
     }
 }
