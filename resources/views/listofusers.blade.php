@@ -4,7 +4,6 @@
 @section('content')
 <main class="listofusers">
 
-
     
 
     {{-- <div class="container"> --}}
@@ -47,13 +46,10 @@
                 <td>{{ $i->updated_at }}</td>
                 <td style="display: flex; justify-content: center; align-items: center;">
                     <button type="button" class="btn btn-info" style="display: inline-block;">Info</button>
+                    <a href="{{route('users.edit', $i->id)}}" class="btn btn-warning ms-1" style="display: inline-block;">Edit</a>
                     
 
-                    <form action="{{route('users.delete', $i->id)}}" method="POST" onclick="return confirm('ban co muon xoa {{$i->name}}')">
-                        @csrf
-                        @method('DELETE')
-                        <input class="btn btn-danger ms-1" type="submit" value="delete">
-                    </form>
+                    
 
                 </td>
                 </tr>
@@ -77,13 +73,10 @@
                 <td>{{ $i->updated_at }}</td>
                 <td style="display: flex; justify-content: center; align-items: center;">
                     <button type="button" class="btn btn-info" style="display: inline-block;">Info</button>
+                    <a href="{{route('users.edit', $i->id)}}" class="btn btn-warning ms-1" style="display: inline-block;">Edit</a>
                     
 
-                    <form action="{{route('users.delete', $i->id)}}" method="POST" onclick="return confirm('ban co muon xoa {{$i->name}}')">
-                        @csrf
-                        @method('DELETE')
-                        <input class="btn btn-danger ms-1" type="submit" value="delete">
-                    </form>
+                    
 
                 </td>
     </tr>

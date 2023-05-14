@@ -25,9 +25,9 @@ Route::get('changeuser', [CustomAuthController::class, 'btnchageuser']);
 Route::prefix('admin')->group(function () {
     // list of user
     Route::get('/list-of-users',[AdminController::class,'index'])->name('list.user');
-    Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.delete');
-    // Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
-    // Route::put('users/{id}/update', [UserController::class, 'update'])->name('users.update');
+    //Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.delete');
+    Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+     Route::put('users/{id}/update', [UserController::class, 'update'])->name('users.update');
     Route::get('users/search', [UserController::class, 'searchUsers'])->name('users.search');
  });
 
