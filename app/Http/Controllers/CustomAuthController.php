@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 
 
@@ -79,15 +77,8 @@ class CustomAuthController extends Controller
         if(Auth::check()){
 
             //return view('changeuser');
-            $products = Product::all();
 
-            $productBestSale = DB::table('products')->orderBy('count_buy', 'desc')->limit(4)->get();
-
-            $productsLLatest = DB::table('products')->orderBy('count_buy', 'asc')->limit(3)->get();
-
-            return view('homepage', compact('productBestSale', 'productsLLatest'));
-
-           
+            return view('dashboard');
         }
   
         return redirect("login")->withSuccess('You are not allowed to access');

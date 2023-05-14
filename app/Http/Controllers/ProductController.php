@@ -15,10 +15,9 @@ class ProductController extends Controller
     {
         $products = Product::all();
 
-        $productBestSale = DB::table('products')->orderBy('count_buy', 'desc')->limit(5)->get();
+        $productBestSale = DB::table('products')->orderBy('count_buy', 'desc')->limit(4)->get();
 
         $productsLLatest = DB::table('products')->orderBy('count_buy', 'asc')->limit(3)->get();
-
 
         return view('homepage', compact('productBestSale', 'productsLLatest'));
     }
