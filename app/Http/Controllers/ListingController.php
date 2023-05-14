@@ -18,8 +18,7 @@ class ListingController extends Controller
         $model = '\App\Models\\' . ucfirst($modelName);
         $model =  new $model;
         $configs = $model->listingConfigs();
-       //  $conditions = [];
-      // $conditions = $model ->getFilter($request,$configs);
+      
 
 
         $filterResult = $model ->getFilter($request,$configs,$modelName);

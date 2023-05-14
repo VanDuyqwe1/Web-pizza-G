@@ -168,10 +168,10 @@
             </div>
             <div class="col-md-10 ">
                 <h3><?= $title ?></h3>
-                <div class="filter-item d-flex flex-wrap" style="display: inline-block;">
+             
                     <!-- tìm kiếm -->
 
-                    <form action="{{route('listing.index',['model'=>'Product'])}}" method="POST" class="filter-form">
+                    <form action="{{route('listing.index',['model'=>$modelName])}}" method="POST" class="filter-form">
                         @csrf
                         <fieldset>
                             <legend> Tìm Kiếm:</legend>
@@ -191,9 +191,9 @@
                                             break;
                                         case "between": ?><br>
                                             <label for="fname"><?= $config['name'] ?> từ : </label>
-                                            <input type="text" name=" <?= $config['field'] ?>" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
+                                            <input type="text" name=" <?= $config['field'] ?>[from]" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
                                             <label for="fname"><?= $config['name'] ?> đến : </label>
-                                            <input type="text" name=" <?= $config['field'] ?>" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
+                                            <input type="text" name=" <?= $config['field'] ?>[to]" value="<?= (!empty($configs['filter_value'])) ? ($configs['filter_value']) : "" ?>">
                             <?php
                                             break;
                                     }
@@ -205,11 +205,11 @@
 
 
 
-                            <input type="submit" value="Tìm sản phẩm">
-                            <input type="submit" value="Thêm sản phẩm">
+                            <input type="submit" value="Tìm ">
+                            <input type="submit" value="Thêm ">
                         </fieldset>
                     </form>
-                </div>
+                
                 <table class="table table-bordered">
                     <thead>
                         <tr>
