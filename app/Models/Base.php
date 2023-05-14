@@ -146,7 +146,7 @@ class Base extends Model
                 'name' => 'ID',
                 'type' => 'number',
                 'filter' => 'equal',
-                'listing' => true,
+                'listing' => false,
                 'editing' => false
 
 
