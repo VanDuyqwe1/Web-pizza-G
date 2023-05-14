@@ -206,7 +206,8 @@
 
 
                             <input type="submit" value="Tìm ">
-                            <input type="submit" value="Thêm ">
+                            <button type="submit"><a href="{{route('editing.create',['model'=>$modelName])}}" style="text-decoration: none; color: black;">Thêm </a></button>
+                          
                         </fieldset>
                     </form>
                 
