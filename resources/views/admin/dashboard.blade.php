@@ -54,6 +54,7 @@
                                     <span class="menu-title">Admins</span>
                                     <div class="badge badge-info badge-pill">2</div>
                                 </a>
+                                <!-- bài của 4-- Userr -->
                                 <a class="nav-link" href="{{route('listing.index',['model'=>'Admin'])}}">
                                     <i class="mdi mdi-view-quilt menu-icon"></i>
                                     <span class="menu-title">Users</span>
