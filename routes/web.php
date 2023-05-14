@@ -1,57 +1,35 @@
 <?php
 
-
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
-
-use App\Http\Controllers\VoucherController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BillController;
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-
-Route::get('/', [ProductController::class, 'index']);
-=======
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
-Route::get('/', [CustomAuthController::class, 'dashboard']); 
-
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-Route::get('voucher', [CustomAuthController::class, 'voucher'])->name('voucher');
-Route::get('promotion', [CustomAuthController::class, 'promotion'])->name('promotion');
-Route::get('menu', [CustomAuthController::class, 'menu'])->name('menu');
-Route::get('orderTracking', [CustomAuthController::class, 'orderTracking'])->name('orderTracking');
-Route::get('storeListing', [CustomAuthController::class, 'storeListing'])->name('storeListing');
-Route::get('blog', [CustomAuthController::class, 'blog'])->name('blog');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
-//  Auth::routes();
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('viewuser', [CustomAuthController::class, 'show']);
+Route::get('changeuser', [CustomAuthController::class, 'btnchageuser']);
 
 
+// admin
+Route::prefix('admin')->group(function () {
+    // list of user
+    Route::get('/list-of-users',[AdminController::class,'index'])->name('list.user');
+    Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.delete');
+     Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+     Route::put('users/{id}/update', [UserController::class, 'update'])->name('users.update');
+    Route::get('users/search', [UserController::class, 'searchUsers'])->name('users.search');
+ });
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/tracking', [BillController::class, 'index']);
-Route::get('/tracking/{slug}/{id_status}', [BillController::class, 'show'])->name('tracking_custom');
-
-
+ 
