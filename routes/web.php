@@ -1,45 +1,35 @@
 <?php
 
-
-use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ListingController;
-use App\Http\Controllers\EditingProductController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
+
+Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('viewuser', [CustomAuthController::class, 'show']);
+Route::get('changeuser', [CustomAuthController::class, 'btnchageuser']);
 
 
-// nqt: quan tri admin//
-Route::get('/', function () {
-    return view('admin.login');
-});
+// admin
+Route::prefix('admin')->group(function () {
+    // list of user
+    Route::get('/list-of-users',[AdminController::class,'index'])->name('list.user');
+    Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.delete');
+    // Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+    // Route::put('users/{id}/update', [UserController::class, 'update'])->name('users.update');
+    Route::get('users/search', [UserController::class, 'searchUsers'])->name('users.search');
+ });
 
-Route::get('admin/login', function () {
-    return view('admin.login');
-});
 
-Route::post('/admin/login', [AdminController::class, 'loginPost'])->name('admin.loginPost');
-Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
-
-//nqt: middleware admin
-
-Route::middleware(['admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/admin/statistics', [AdminController::class, 'statistics'])->name('admin.statistics');
-//nqt: quan tri san pham
-Route::get("/admin/listing/{model}", [ListingController::class, 'index'])->name('listing.index');
-Route::post("/admin/listing/{model}", [ListingController::class, 'index'])->name('listing.index');
-Route::get("/admin/editing/{model}", [EditingProductController::class, 'create'])->name('editing.create');
-Route::post("/admin/editing/{model}", [EditingProductController::class, 'store'])->name('editing.store');
-});
-
-//nqt:quan tri admin//
+ 
