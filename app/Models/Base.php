@@ -141,29 +141,39 @@ class Base extends Model
         return array(
             array (
                 'field' => "created_at",
-                'name' => "created_at",
-                'type' => 'text'
+                'name' => "Ngày tạo",
+                'type' => 'text',
+                'listing' => false,
+                'editing' => false,
             ),
             array (
                 'field' => "updated_at",
-                'name' => "updated_at",
-                'type' => 'text'
+                'name' => "Ngày cập nhật",
+                'type' => 'text',
+                'listing' => false,
+                'editing' => false,
             ),
 
             array(
                 'field' => "copy",
                 'name' => "Copy",
-                'type' => 'copy'
+                'type' => 'copy',
+                'listing' => false,
+                'editing' => false,
             ),
             array(
                 'field' => "edit",
                 'name' => "Sửa",
-                'type' => 'edit'
+                'type' => 'edit',
+                'listing' => false,
+                'editing' => false,
             ),
             array(
                 'field' => "delete",
                 'name' => "Xóa",
-                'type' => 'delete'
+                'type' => 'delete',
+                'listing' => false,
+                'editing' => false,
             )
         );
     }

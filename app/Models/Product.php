@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Base;
 
 class Product extends Base
 {
@@ -17,8 +18,8 @@ class Product extends Base
         $listingConfigs = array(
             array(
 
-                'field' => 'Category_id',
-                'name' => 'Category_id',
+                'field' => 'id',
+                'name' => 'ID',
                 'type' => 'text',
                 'filter' => 'equal',
                 'listing' => true,
