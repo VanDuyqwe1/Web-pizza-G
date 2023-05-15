@@ -18,11 +18,11 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
         if(Auth::guard('admin')->check()){
-            $adminUser = Auth::guard('admin')->user();
-            return view('admin.dashboard',['user'=>$adminUser]);
+            // $adminUser = Auth::guard('admin')->user();
+            return $next($request);
         }else{
             return redirect('admin/login');
         }
-        return $next($request);
+        //return $next($request);
     }
 }

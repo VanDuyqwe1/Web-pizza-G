@@ -15,21 +15,21 @@ class Product extends Base
         $defaultListingConfigs = parent::defaultListingConfigs();
 
         $listingConfigs = array(
-            // array(
+            array(
 
-            //     'field' => "Category_id",
-            //     'name' => "Category_id",
-            //     'type' => 'text',
-            //     'filter' => 'equal',
-            //     'listing' => true,
-            //     'editing' => false
+                'field' => 'Category_id',
+                'name' => 'Category_id',
+                'type' => 'text',
+                'filter' => 'equal',
+                'listing' => true,
+                'editing' => false
 
 
-            // ),
+            ),
 
             array(
-                'field' => "name",
-                'name' => "Tên sản phẩm",
+                'field' => 'name',
+                'name' => 'Tên sản phẩm',
                 'type' => 'text',
                 'filter' => 'like',
                 'listing' => true,
@@ -38,16 +38,16 @@ class Product extends Base
             ),
             
             array(
-                'field' => "image",
-                'name' => "Ảnh sản phẩm",
+                'field' => 'image',
+                'name' => 'Ảnh sản phẩm',
                 'type' => 'image',
                 'listing' => true,
                 'editing' => true
             ),
 
             array(
-                'field' => "quantity",
-                'name' => "Số lượng sản phẩm",
+                'field' => 'quantity',
+                'name' => 'Số lượng sản phẩm',
                 'type' => 'number',
                 'filter' => 'equal',
                 'listing' => true,
@@ -55,8 +55,8 @@ class Product extends Base
                 'validate' => 'required|Numeric'
             ),
             array(
-                'field' => "price",
-                'name' => "Giá sản phẩm",
+                'field' => 'price',
+                'name' => 'Giá sản phẩm',
                 'type' => 'number',
                 'filter' => 'between',
                 'listing' => true,

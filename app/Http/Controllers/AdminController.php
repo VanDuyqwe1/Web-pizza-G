@@ -36,7 +36,13 @@ class AdminController extends Controller
     }
     public function statistics()
     {
-        echo "day la he thong thong ke";
+        if (Auth::guard('admin')->check()) {
+            echo "day la he thong thong ke";
+           
+        } else {
+            return redirect('admin/login');
+        }
+       
     }
     public function logout()
     {

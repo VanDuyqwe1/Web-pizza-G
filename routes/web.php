@@ -7,7 +7,9 @@ use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\BillController;
 use Illuminate\Support\Facades\Route;
 
-
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ListingController;
+use App\Http\Controllers\EditingProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,7 +61,7 @@ Route::get('/', function () {
     return view('admin.login');
 });
 
-Route::get('admin/login',function() {
+Route::get('admin/login', function () {
     return view('admin.login');
 });
 

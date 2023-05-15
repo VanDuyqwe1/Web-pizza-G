@@ -34,7 +34,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row d-flex">
             <div class="col-md-3">
                 <div class="container-scroller d-flex">
                     <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -53,6 +53,11 @@
                                     <i class="mdi mdi-view-quilt menu-icon"></i>
                                     <span class="menu-title">Admins</span>
                                     <div class="badge badge-info badge-pill">2</div>
+                                </a>
+                                <a class="nav-link" href="{{route('listing.index',['model'=>'Admin'])}}">
+                                    <i class="mdi mdi-view-quilt menu-icon"></i>
+                                    <span class="menu-title">Users</span>
+                                    <div class="badge badge-info badge-pill">3</div>
                                 </a>
                             </li>
 
@@ -122,9 +127,9 @@
                                 <span></span>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="docs/documentation.html">
+                                <a class="nav-link" href="{{route('admin.logout',['model'=>'Product'])}}">
                                     <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                                    <span class="menu-title">Documentation</span>
+                                    <span class="menu-title">LogOut</span>
                                 </a>
                             </li>
                         </ul>
@@ -135,8 +140,11 @@
                 </div>
 
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9 ms-auto">
                 <div class="row" style="display: block;">
+                <!-- <img src="{{URL::asset('/images_admin/img_main.webp')}}" alt="profile Pic" height="710px" width="100px"> -->
+                <img src="{{URL::asset('/images_admin/img_02.webp')}}" alt="profile Pic" height="610px" width="5px">
+
 
                     <div class="col-md-12 col-sm-6  ">               
                                 <table class="table table-bordered">
