@@ -75,28 +75,32 @@ class UserController extends Controller
         if ($user->save()) {
             return redirect()->route('list.user');
         }
-    }
+     }
 
     /**
      * Delete user.
      */
-    // public function destroy(string $id)
-    // {
-    //     //
-    //     $user = User::find($id);
-    //     if(User::destroy($user->id)) {
-    //         return redirect()->route('list.user');
-    //     }
+    public function destroy(string $id)
+    {
+        //
+        $user = User::find($id);
+        if(User::destroy($user->id)) {
+            return redirect()->route('list.user');
+        }
 
-    // }
+    }
 
     //Tim kiem users
     
-    // public function searchUsers(Request $request)
-    // {
+    public function searchUsers(Request $request)
+    {
       
-    //     $keyword = $request->name;
-    //     $user =  User::query()->where('name', 'LIKE', '%' . $keyword . '%')->get();
-    //     return view('listofusers', compact('user'));
-    // }
+        $keyword = $request->name;
+        $user =  User::query()->where('name', 'LIKE', '%' . $keyword . '%')->orWhere('phone', 'LIKE', '%'
+        . $keyword . '%')->get();
+        //$number_phone =  User::query()->where('phone', 'LIKE', '%' . $keyword . '%')->get();
+        
+        
+        return view('listofusers', compact('user'));
+    }
 }

@@ -5,8 +5,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\EditingProductController;
@@ -21,7 +22,7 @@ use App\Http\Controllers\EditingProductController;
 |
 */
 
-
+Auth::routes();
 // Route::get('/', [ProductController::class, 'index']);
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
@@ -43,7 +44,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-<<<<<<< HEAD
+
 Route::get('/tracking', [BillController::class, 'index']);
 Route::get('/tracking/{slug}/{id_status}', [BillController::class, 'show'])->name('tracking_custom');
 // Xem chi tiết

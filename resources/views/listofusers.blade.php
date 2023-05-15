@@ -4,7 +4,17 @@
 @section('content')
 <main class="listofusers">
 
-    
+    {{-- Tìm kiếm user --}}
+    <div class="search m-2" style=" display: flex;
+        justify-content: right;">
+       <form action="{{route('users.search')}}" method="get" class="d-flex">
+            <input value="{{old('key_user')}}" type="text" name="name" id="#" placeholder="Search Name" style="border: 1px solid black; margin-right: 5px;">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        
+        </form>
+        
+        
+    </div>
 
     {{-- <div class="container"> --}}
 
@@ -49,7 +59,11 @@
                     <a href="{{route('users.edit', $i->id)}}" class="btn btn-warning ms-1" style="display: inline-block;">Edit</a>
                     
 
-                    
+                    <form action="{{route('users.delete', $i->id)}}" method="POST" onclick="return confirm('ban co muon xoa {{$i->name}}')">
+                        @csrf
+                        @method('DELETE')
+                        <input class="btn btn-danger ms-1" type="submit" value="delete">
+                    </form>
 
                 </td>
                 </tr>
@@ -76,7 +90,11 @@
                     <a href="{{route('users.edit', $i->id)}}" class="btn btn-warning ms-1" style="display: inline-block;">Edit</a>
                     
 
-                    
+                    <form action="{{route('users.delete', $i->id)}}" method="POST" onclick="return confirm('ban co muon xoa {{$i->name}}')">
+                        @csrf
+                        @method('DELETE')
+                        <input class="btn btn-danger ms-1" type="submit" value="delete">
+                    </form>
 
                 </td>
     </tr>
@@ -84,6 +102,7 @@
 @endforeach
 
                 @endif
+                
                 @endif
             <!-- </tr> -->
         </tbody>
