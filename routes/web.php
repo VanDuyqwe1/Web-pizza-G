@@ -34,3 +34,9 @@ Route::prefix('/user')->group(function () {
 
 
 
+
+Route::get('/tracking', [BillController::class, 'index']);
+Route::get('/tracking/{slug}/{id_status}', [BillController::class, 'show'])->name('tracking_custom');
+// Xem chi tiết
+Route::get('/billdetail/{id_bill}', [BillController::class, 'bill_detail'])->name('bill_detail');
+
