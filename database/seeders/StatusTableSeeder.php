@@ -22,6 +22,17 @@ class StatusTableSeeder extends Seeder
                 ['name'=>'Giao hàng', 'describe'=>'Nhân viên chúng tôi đang giao với vận tốc bàn thờ'],
                 ['name'=>'Hoàn thành', 'describe'=>'Đơn hàng đã đến tay của bạn'],
                 ['name'=>'Huỷ đơn', 'describe'=>'Đơn hàng đã bị huỷ bỏ'],
+
+				/*
+     			['name'=>'Chuẩn bị nguyên liệu'],
+                ['name'=>'Làm bột'],
+                ['name'=>'Làm nước sốt'],
+                ['name'=>'Nưỡng bánh'],
+                ['name'=>'Giao hàng'],
+                ['name'=>'Hoàn thành'],
+                ['name'=>'Huỷ đơn'],
+     			*/
+
             ]
         );
     }

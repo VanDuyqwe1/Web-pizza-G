@@ -14,60 +14,85 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-
-        $productBestSale = DB::table('products')->orderBy('count_buy', 'desc')->limit(5)->get();
+        /**
+        *return view('products', compact('products'));
+        */
+        
+		$productBestSale = DB::table('products')->orderBy('count_buy', 'desc')->limit(5)->get();
 
         $productsLLatest = DB::table('products')->orderBy('count_buy', 'asc')->limit(3)->get();
 
 
         return view('homepage', compact('productBestSale', 'productsLLatest'));
     }
-
+  
     /**
-     * Show the form for creating a new resource.
+     * Write code on Method
+     * 
+     * 
+     *
+     * @return response()
      */
-    public function create()
+    public function cart()
     {
-        //
+        return view('cart');
     }
-
+  
     /**
-     * Store a newly created resource in storage.
+     * Write code on Method
+     *
+     * @return response()
      */
-    public function store(Request $request)
+    public function addToCart($id)
     {
-        //
+        $product = Product::findOrFail($id);
+          
+        $cart = session()->get('cart', []);
+  
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "image" => $product->image
+            ];
+        }
+          
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
-
+  
     /**
-     * Display the specified resource.
+     * Write code on Method
+     *
+     * @return response()
      */
-    public function show(string $id)
+    public function update(Request $request)
     {
-        //
+        if($request->id && $request->quantity){
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart updated successfully');
+        }
     }
-
+  
     /**
-     * Show the form for editing the specified resource.
+     * Write code on Method
+     *
+     * @return response()
      */
-    public function edit(string $id)
+    public function remove(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Product removed successfully');
+        }
     }
 }

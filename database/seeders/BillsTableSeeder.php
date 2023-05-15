@@ -15,7 +15,15 @@ class BillsTableSeeder extends Seeder
         //
         DB::table('bills')->insert(
             [
-                
+                ['id_user'=>'1','id_status'=>'6','id_voucher'=>null,'address'=>'Linh đông',],
+                ['id_user'=>'2','id_status'=>'4','id_voucher'=>null,'address'=>'Linh đông',],
+                ['id_user'=>'3','id_status'=>'7','id_voucher'=>null,'address'=>'Linh đông',],
+                ['id_user'=>'4','id_status'=>'3','id_voucher'=>null,'address'=>'Linh đông',],
+                ['id_user'=>'5','id_status'=>'6','id_voucher'=>null,'address'=>'Linh đông',],
+                ['id_user'=>'6','id_status'=>'1','id_voucher'=>null,'address'=>'Linh đông',],
+                ['id_user'=>'7','id_status'=>'2','id_voucher'=>null,'address'=>'Linh đông',],
+                ['id_user'=>'8','id_status'=>'7','id_voucher'=>null,'address'=>'Linh đông',],
+                ['id_user'=>'9','id_status'=>'1','id_voucher'=>null,'address'=>'Linh đông',],
 
                 ['id_user'=>'10','id_status'=>'1','id_voucher'=>2001,'address'=>'Linh đông',],
                 ['id_user'=>'11','id_status'=>'2','id_voucher'=>2002,'address'=>'Linh đông',],

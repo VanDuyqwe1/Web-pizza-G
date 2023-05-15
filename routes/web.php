@@ -46,5 +46,12 @@ Route::get('/tracking/{slug}/{id_status}', [BillController::class, 'show'])->nam
 // Xem chi tiết
 Route::get('/billdetail/{id_bill}', [BillController::class, 'bill_detail'])->name('bill_detail');
 
+// route add cart cua Tien
+Route::get('/', [ProductController::class, 'index']);  
+Route::get('cart', [ProductController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
+
 
 
