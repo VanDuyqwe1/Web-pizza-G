@@ -1,6 +1,7 @@
-@extends('layout')
-  
+@extends('dashboard')
+
 @section('content')
+<div class="container">
 <table id="cart" class="table table-hover table-condensed">
     <thead>
         <tr>
@@ -43,16 +44,31 @@
         </tr>
         <tr>
             <td colspan="5" class="text-right">
-                <a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a>
-                <button class="btn btn-success">Checkout</button>
+
+               
+
+                <a href="{{ URL::to('/menu') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a>
+
+                <?php
+                $customer_id = Session::get('id');
+                if($customer_id!=NULL){
+            ?>
+            <a href="{{URL::to('/checkout')}}" class="btn btn-primary check_out">Checkout</a>
+            <?php
+                }else{
+                    ?>
+                    <a href="{{URL::to('/login-checkout')}}" class="btn btn-primary check_out">Checkout</a>
+                    <?php
+                }
+                ?>
+                
+
             </td>
         </tr>
     </tfoot>
     
 </table>
-
-
-
+</div>
 
 @endsection
 

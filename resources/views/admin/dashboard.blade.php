@@ -138,36 +138,14 @@
             <div class="col-md-9">
                 <div class="row" style="display: block;">
 
-                    <!-- <div class="col-md-12 col-sm-6  ">               
+                    <div class="col-md-12 col-sm-6  ">               
                                 <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Image</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>Count_buy</th>
-                                            <th>Category_id</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                       
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            
-
-                                        </tr>
-                                      
-                                       
-                                    </tbody>
-                                </table>
-
+                                <link rel="stylesheet" href="{{asset('image/img_main.webp')}}">
                             </div>
                         </div>
                     </div>
 
-                    <div class="clearfix"></div> -->
+                    <div class="clearfix"></div>
 
                    
                 </div>

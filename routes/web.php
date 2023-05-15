@@ -41,6 +41,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+<<<<<<< HEAD
 Route::get('/tracking', [BillController::class, 'index']);
 Route::get('/tracking/{slug}/{id_status}', [BillController::class, 'show'])->name('tracking_custom');
 // Xem chi tiết
@@ -77,4 +78,20 @@ Route::get("/admin/listing/{model}",[ListingController::class,'index'])->name('l
 Route::get("/admin/editing/{model}",[EditingProductController::class,'create'])->name('editing.create');
 Route::post("/admin/editing/{model}",[EditingProductController::class,'store'])->name('editing.store');
 
+// route checkout cua Tai
+
+Route::get('menu', 'CartController@index');  
+Route::get('cart', 'CartController@cart')->name('cart');
+Route::get('add-to-cart/{id}','CartController@addToCart')->name('add.to.cart');
+Route::patch('update-cart', 'CartController@update')->name('update.cart');
+Route::delete('remove-from-cart', 'CartController@remove')->name('remove.from.cart');
+
+
+Route::get('checkout', 'CheckoutController@index');
+//Route::delete('/destroyCart', 'CheckoutController@destroyCart');
+Route::get('/login-checkout','CheckoutController@login_checkout');
+Route::post('/add-customer','CheckoutController@add_customer');
+Route::post('/login-customer','CheckoutController@login_customer');
+Route::post('/save-checkout-customer','CheckoutController@save_checkout_customer');
+Route::get('/logout-checkout','CheckoutController@logout_checkout');
 
