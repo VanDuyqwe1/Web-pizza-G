@@ -1,0 +1,6 @@
+{{-- @foreach ($categories_lv_2 as $item)
+                            <li ><a   data-toggle="tab" title="tab_product" href="#home"  data-text="Latest"><span>
+                                <?php echo $item->name ?>
+                            </span></a></li>
+                        
+                        @endforeach --}}

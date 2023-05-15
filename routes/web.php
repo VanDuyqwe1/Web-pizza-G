@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\VoucherController;
@@ -21,6 +20,7 @@ use App\Http\Controllers\EditingProductController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 Auth::routes();
 // Route::get('/', [ProductController::class, 'index']);
@@ -69,7 +69,12 @@ Route::get('admin/login', function () {
 Route::post('/admin/login',[AdminController::class,'loginPost'])->name('admin.loginPost');
 Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
 
+// route duy
+Route::get('thucdon', [ProductController::class, 'showCategoryRoot']);
+Route::get('thucdon/{id_category}', [ProductController::class, 'showCategoryRoot']);
+Route::get('thucdon/{id_category}', [ProductController::class, 'showProductById'])->name('category-products-custom');
 
+//route tien
 Route::middleware(['admin'])->group(function ()
 {
     Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
