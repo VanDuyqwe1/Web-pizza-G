@@ -37,9 +37,7 @@
             @endforeach
         @endif
     </tbody>
-    <tfoot>
-        
-    </tfoot>
+    
     
 </table>
 
