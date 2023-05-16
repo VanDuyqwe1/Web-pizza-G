@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Detail_cart;
 use App\Models\Product;
+use App\Models\Product_option;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,23 +16,101 @@ class ProductController extends Controller
      */
     public function index()
     {
-
-        $categories_lv_1 = DB::table('categories')->where('parent_id', '0')->get();
-        $categories_lv_2 = DB::table('categories')->where('parent_id', '1')->get();
-        // [pizza, món phụ, tráng miệng, thức uống]
-        // [hải sản, bò, gà, heo, ăn chay]
-        // Lấy tất cả sản phẩn của pizza>hải sản
-        $products = DB::table('products')->where('category_id', $categories_lv_2[0]->id)->get();
-
-        return view('thucdon', compact('categories_lv_1', 'categories_lv_2', 'products'));
+        
+       return view('thucdon');
+        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function showProductRoot()
+    {
+        // Tìm category và product ban đầu
+        $all_category = Category::all();
+        $root_category = $all_category->where('parent_id', 0);
+        self::format_tree($root_category,$all_category);
+        $categories_lv_2 = DB::table('categories')->where('parent_id', '1')->get();
+        $products = DB::table('products')->where('category_id', $categories_lv_2[0]->id)->get();
+        
+
+        return view('thucdon', compact('root_category', 'products'));
+               
+    }
+
+    public function showProductById($id_category)
+    {
+        // Tìm category và product ban đầu
+        $all_category = Category::all();
+        $root_category = $all_category->where('parent_id', 0);
+        self::format_tree($root_category,$all_category);
+
+        // Lấy con của pizza thức uống các thứ
+        $categories_lv_2 = DB::table('categories')->where('parent_id', $id_category)->get();
+
+        // categories_lv_2 0 có giá trị 
+        // -> nhấn bò gà vịt các thứ
+        // -> nhấn vào thức uống tráng miệng
+        // Nếu lấy không được -> người dùng đang nhấn vào categories con & thức uống tráng miệng
+        $result = "";
+        if (count($categories_lv_2) == 0) {
+            // lấy những categori con cùng cấp
+            $parent_id = DB::table('categories')->where('id', $id_category)->get();
+
+            if ($parent_id[0]->parent_id != 0) {
+                $categories_lv_2 = DB::table('categories')->where('parent_id', $parent_id[0]->parent_id)->get();
+                $products = DB::table('products')->where('category_id', $id_category)->get();
+                return view('thucdon', compact('root_category', 'products', 'result'));
+            }
+        }
+        if (count($categories_lv_2) != 0) { 
+            $products = DB::table('products')->where('category_id', $categories_lv_2[0]->id)->get();
+            return view('thucdon', compact('root_category', 'products', 'result'));
+        }
+        if (count($categories_lv_2) == 0) {
+            $products = DB::table('products')->where('category_id', $id_category)->get();
+            return view('thucdon', compact('root_category', 'products', 'result'));
+        }
+
+        
+    }
+    function format_tree($root_category, $all_category, $parent_id = 0, $str = "")
+    {
+        foreach ($root_category as $cate) {
+            $cate->children = $all_category->where('parent_id', $cate->id)->values();
+            if ($cate->children->isNotEmpty()) {
+                self::format_tree($cate->children, $all_category);
+            }
+        }
+    }
+
+    public function autocompleteSearch(Request $request)
+    {
+        $query = $request->get('query');
+        $filterResult = Product::where('name', 'LIKE', '%'. $query . '%')->get();
+        return response()->json($filterResult);
+    }
+    public function handleForm(Request $request)
+    {
+        // Tìm category và product ban đầu
+        $all_category = Category::all();
+        $root_category = $all_category->where('parent_id', 0);
+        self::format_tree($root_category,$all_category);
+        $categories_lv_2 = DB::table('categories')->where('parent_id', '1')->get();
+
+        // tìm theo từ khóa
+        $keyword = $request->search;
+        $products = Product::where('name', 'LIKE', '%'. $keyword . '%')->get();
+
+        return view('thucdon', compact('root_category', 'products'));
+
+    }
+
+
     public function create()
     {
         //
+    }
+    public function searchproduct()
+    {
+        return view('searchproduct');
     }
 
     /**
@@ -43,36 +124,36 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id_category)
-    {
-        // hiển thị pizza thức uống tráng miệng... (bắt buộc có)
-        $categories_lv_1 = DB::table('categories')->where('parent_id', 0)->get();
+    // public function showProductById($id_category)
+    // {
+    //     // hiển thị pizza thức uống tráng miệng... (bắt buộc có)
+    //     $categories_lv_1 = DB::table('categories')->where('parent_id', 0)->get();
 
-        // Lấy con của pizza thức uống các thứ
-        $categories_lv_2 = DB::table('categories')->where('parent_id', $id_category)->get();
+    //     // Lấy con của pizza thức uống các thứ
+    //     $categories_lv_2 = DB::table('categories')->where('parent_id', $id_category)->get();
 
-        // categories_lv_2 0 có giá trị 
-        // -> nhấn bò gà vịt các thứ
-        // -> nhấn vào thức uống tráng miệng
-        // Nếu lấy không được -> người dùng đang nhấn vào categories con & thức uống tráng miệng
-        if (count($categories_lv_2) == 0) {
-            // lấy những categori con cùng cấp
-            $parent_id = DB::table('categories')->where('id', $id_category)->get();
+    //     // categories_lv_2 0 có giá trị 
+    //     // -> nhấn bò gà vịt các thứ
+    //     // -> nhấn vào thức uống tráng miệng
+    //     // Nếu lấy không được -> người dùng đang nhấn vào categories con & thức uống tráng miệng
+    //     if (count($categories_lv_2) == 0) {
+    //         // lấy những categori con cùng cấp
+    //         $parent_id = DB::table('categories')->where('id', $id_category)->get();
 
-            if ($parent_id[0]->parent_id != 0) {
-                $categories_lv_2 = DB::table('categories')->where('parent_id', $parent_id[0]->parent_id)->get();
-                $products = DB::table('products')->where('category_id', $id_category)->get();
-                return view('thucdon', compact('categories_lv_1', 'categories_lv_2', 'products'));
-            }
-        }
-        if (count($categories_lv_2) != 0) { 
-            $products = DB::table('products')->where('category_id', $categories_lv_2[0]->id)->get();
-            return view('thucdon', compact('categories_lv_1', 'categories_lv_2', 'products'));
-        }
-        if (count($categories_lv_2) == 0) {
-            $products = DB::table('products')->where('category_id', $id_category)->get();
-            return view('thucdon', compact('categories_lv_1', 'categories_lv_2', 'products'));
-        }
+    //         if ($parent_id[0]->parent_id != 0) {
+    //             $categories_lv_2 = DB::table('categories')->where('parent_id', $parent_id[0]->parent_id)->get();
+    //             $products = DB::table('products')->where('category_id', $id_category)->get();
+    //             return view('thucdon', compact('categories_lv_1', 'categories_lv_2', 'products'));
+    //         }
+    //     }
+    //     if (count($categories_lv_2) != 0) { 
+    //         $products = DB::table('products')->where('category_id', $categories_lv_2[0]->id)->get();
+    //         return view('thucdon', compact('categories_lv_1', 'categories_lv_2', 'products'));
+    //     }
+    //     if (count($categories_lv_2) == 0) {
+    //         $products = DB::table('products')->where('category_id', $id_category)->get();
+    //         return view('thucdon', compact('categories_lv_1', 'categories_lv_2', 'products'));
+    //     }
 
         //     $categories_lv_1 = DB::table('categories')->where('parent_id', $id_category)->get();
         //     $categories_lv_2 = DB::table('categories')->where('parent_id', $categories_lv_1[0]->id)->get();
@@ -136,7 +217,7 @@ class ProductController extends Controller
         // return view('thucdon', compact('categories_lv_1', 'categories_lv_2','products'));
 
         //     return view('thucdon', compact('categories_lv_1', 'categories_lv_2', 'id', 'categories'));
-    }
+    // }
 
 
 
