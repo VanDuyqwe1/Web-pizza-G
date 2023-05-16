@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('bill_detail', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100);
-            $table->string('email',100)->unique();
-            $table->string('password');
-            $table->timestamps();
+            $table->integer('id_bill');
+            $table->integer('id_product');
+            $table->integer('id_option');
+            $table->integer('quantity')->default(100);
         });
     }
 
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('bill_detail');
     }
 };

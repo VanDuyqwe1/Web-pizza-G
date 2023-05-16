@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',100);
-            $table->string('email',100)->unique();
-            $table->string('password');
-            $table->timestamps();
+        Schema::create('carts', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->integer('id_voucher')->nullable();
+
+            $table->timestamps(); // chưa có mặc định thời gian
+            
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('carts');
     }
 };
