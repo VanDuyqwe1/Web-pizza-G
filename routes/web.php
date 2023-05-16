@@ -1,12 +1,12 @@
 <?php
 
-
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\EditingProductController;
@@ -22,7 +22,7 @@ use App\Http\Controllers\EditingProductController;
 */
 
 
-
+Auth::routes();
 // Route::get('/', [ProductController::class, 'index']);
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
@@ -58,34 +58,34 @@ Route::patch('update-cart', [ProductController::class, 'update'])->name('update.
 Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
 
 // route add product cua Tien
-Route::get('/', function () {
-    return view('admin.login');
-});
-//nqt: quan tri san pham
+// Route::get('/', function () {
+//     return view('admin.login');
+// });
+
 Route::get('admin/login', function () {
     return view('admin.login');
 });
 
-Route::post('/admin/login', [AdminController::class, 'loginPost'])->name('admin.loginPost');
-Route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+Route::post('/admin/login',[AdminController::class,'loginPost'])->name('admin.loginPost');
+Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
 
-//nqt: middleware admin
+// route duy
+Route::get('thucdon', [ProductController::class, 'showCategoryRoot']);
+Route::get('thucdon/{id_category}', [ProductController::class, 'showCategoryRoot']);
+Route::get('thucdon/{id_category}', [ProductController::class, 'showProductById'])->name('category-products-custom');
 
-Route::middleware(['admin'])->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('/admin/statistics', [AdminController::class, 'statistics'])->name('admin.statistics');
-//nqt: quan tri san pham
-Route::get("/admin/listing/{model}", [ListingController::class, 'index'])->name('listing.index');
-Route::post("/admin/listing/{model}", [ListingController::class, 'index'])->name('listing.index');
-Route::get("/admin/editing/{model}", [EditingProductController::class, 'create'])->name('editing.create');
-Route::post("/admin/editing/{model}", [EditingProductController::class, 'store'])->name('editing.store');
-});
-
+//route tien
+Route::middleware(['admin'])->group(function ()
+{
+    Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
+Route::get('/admin/statistics',[AdminController::class,'statistics'])->name('admin.statistics');
 //nqt: quan tri san pham
 Route::get("/admin/listing/{model}",[ListingController::class,'index'])->name('listing.index');
 Route::get("/admin/listing/{model}",[ListingController::class,'index'])->name('listing.index');
 Route::get("/admin/editing/{model}",[EditingProductController::class,'create'])->name('editing.create');
 Route::post("/admin/editing/{model}",[EditingProductController::class,'store'])->name('editing.store');
+
+});
 
 // route checkout cua Tai
 

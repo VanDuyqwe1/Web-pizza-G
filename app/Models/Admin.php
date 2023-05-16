@@ -19,11 +19,7 @@ class Admin extends Base implements AuthenticatableContract
             $defaultListingConfigs = parent::defaultListingConfigs();
 
             $listingConfigs = array(
-                array (
-                    'field' => "id",
-                    'name' => "ID",
-                    'type' => 'text'
-                ),
+               
                 array (
                     'field' => "name",
                     'name' => "Tên admin",

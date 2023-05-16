@@ -16,18 +16,7 @@ class Product extends Base
         $defaultListingConfigs = parent::defaultListingConfigs();
 
         $listingConfigs = array(
-            array(
-
-                'field' => 'id',
-                'name' => 'ID',
-                'type' => 'text',
-                'filter' => 'equal',
-                'listing' => true,
-                'editing' => false
-
-
-            ),
-
+           
             array(
                 'field' => 'name',
                 'name' => 'Tên sản phẩm',

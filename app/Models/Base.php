@@ -34,10 +34,11 @@ class Base extends Model
 
     public function getRecords($conditions)
     {
-        $per_page = 10;
+        $per_page = 5;
         return  self::where($conditions)->paginate($per_page);
     }
 
+    //nqt: tim kiem san pham
     public function getFilter($request, $configs, $modelName)
     {
         $conditions = [];
@@ -56,7 +57,7 @@ class Base extends Model
 
 
                                 ];
-                                $config['filter_value'] = $value;
+                               // $config['filter_value'] = $value;
                             }
 
 
@@ -69,7 +70,7 @@ class Base extends Model
 
 
                             ];
-                            $config['filter_value'] = $value;
+                      //      $config['filter_value'] = $value;
 
 
 
@@ -77,21 +78,21 @@ class Base extends Model
                         case "between":
                             if (!empty($value['from'])) {
                                 $conditions[] = [
-                                    'field' => $config['field'],
+                                    'field' => 'price',
                                     'condition' => '>=',
                                     'value' => $value['from']
 
                                 ];
-                                $config['filter_from_value'] = $value['from'];
+                             //   $config['filter_from_value'] = $value['from'];
                             }
                             if (!empty($value['to'])) {
                                 $conditions[] = [
-                                    'field' => $config['field'],
+                                    'field' => 'price',
                                     'condition' => '<=',
                                     'value' => $value['to']
 
                                 ];
-                                $config['filter_to_value'] = $value['to'];
+                              ///  $config['filter_to_value'] = $value['to'];
                             }
 
                             break;
@@ -139,6 +140,18 @@ class Base extends Model
     public function defaultListingConfigs()
     {
         return array(
+            array(
+
+                'field' => 'id',
+                'name' => 'ID',
+                'type' => 'number',
+                'filter' => 'equal',
+                'listing' => false,
+                'editing' => false
+
+
+            ),
+
             array (
                 'field' => "created_at",
                 'name' => "Ngày tạo",
