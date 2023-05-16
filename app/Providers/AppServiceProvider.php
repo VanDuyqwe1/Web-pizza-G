@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Pagination\Paginator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -20,5 +20,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        //Tâm An: 12/4/23
+        // Bootstrap cho phân trang
+        Paginator::useBootstrapFive();
+        Paginator::useBootstrapFour();
     }
 }

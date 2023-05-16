@@ -58,6 +58,71 @@ if (!class_exists('lessc')) {
 
                 </ul>
 
+                <div class="tabs">
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active ">
+                            <div class="frameswiper">
+                                <!-- Swiper -->
+                                <div class="swiper-container s1">
+                                    <div class="swiper-wrapper">
+
+                                        @foreach ($products as $i)
+                                        <div class="swiper-slide">
+
+                                            <div class="item">
+                                                <div class="imageitem">
+                                                    <a href="#">
+                                                        <img src="{{ asset('images/'.$i->image) }}"
+                                                            class="tpfclick" alt="null">
+                                                        <span>5%</span>
+                                                    </a>
+
+                                                </div>
+                                                <div class="infoitem">
+                                                    <div class="title">
+                                                        <h3><a href="#">{{ $i->name }}</a></h3>
+                                                    </div>
+                                                    <div class="price">
+                                                        <p>
+                                                            <del><span>10.0 £</span></del>
+                                                            <ins><span>7.0 £</span></ins>
+                                                        </p>
+                                                    </div>
+                                                    <div class="starrating">
+                                                        <ul>
+                                                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="buttonit">
+                                                        <a href="#">ADD TO CART</a>
+                                                        <a href="#">MORE DETAIL</a>
+                                                    </div>
+                                                    <div class="buttonacount">
+                                                        <a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                                        <a href="#"><i class="fa fa-exchange"
+                                                                aria-hidden="true"></i></a>
+                                                        <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+
+                                    </div>
+                                    <div class="swiper-button-next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+                                    <div class="swiper-button-prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
                 <a href="#" class="viewall">VIEW ALL</a>
             </div>

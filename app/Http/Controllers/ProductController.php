@@ -14,10 +14,6 @@ class ProductController extends Controller
     public function index()
     {
 
-    }
-    public function showCategoryRoot()
-    {
-
         $categories_lv_1 = DB::table('categories')->where('parent_id', '0')->get();
         $categories_lv_2 = DB::table('categories')->where('parent_id', '1')->get();
         // [pizza, món phụ, tráng miệng, thức uống]
@@ -47,7 +43,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showProductById($id_category)
+    public function show($id_category)
     {
         // hiển thị pizza thức uống tráng miệng... (bắt buộc có)
         $categories_lv_1 = DB::table('categories')->where('parent_id', 0)->get();
