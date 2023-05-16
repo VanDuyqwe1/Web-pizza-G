@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <!-- fonts links -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+<<<<<<< HEAD
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap" rel="stylesheet">
 
@@ -161,7 +162,10 @@
     <div class="home-section">
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg" id="navbar">
+<<<<<<< HEAD
 >>>>>>> 11-laravel10x-Checkout
+=======
+>>>>>>> parent of 0703ee2 (update menu)
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

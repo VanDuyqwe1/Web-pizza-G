@@ -1,22 +1,13 @@
-@extends('dashboard')
-@section('content')
-
-<div class="row">
-    @foreach($products as $product)
-        <div class="col-xs-18 col-sm-6 col-md-3">
-            <div class="thumbnail">
-            <img src="{{asset('images/'.$product->image)}}" width="200" height="100" class="img-responsive" alt="">
-                <div class="caption">
-                    <h4>{{ $product->name }}</h4>
-                    <p>{{ $product->description }}</p>
-                    
-                    <p><strong>Price: </strong> {{ $product->price }}$</p>
-                    <p class="btn-holder"><a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-warning btn-block text-center" role="button">Add to cart</a> </p>
-                </div>
-            </div>
-        </div>
-    @endforeach
-</div>
-
-
-@endsection
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>menu'page</h1>
+</body>
+@yield('content')
+</html>

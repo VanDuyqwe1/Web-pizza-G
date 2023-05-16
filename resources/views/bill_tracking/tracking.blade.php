@@ -85,11 +85,11 @@
                                 </form>
                             </td> --}}
                                     <td> 
-                                        {{-- <button class="btn btn-warning">Xem chi tiết</button> --}}
-                                        <a href="{{ route('bill_detail',
+                                        <button class="btn btn-warning">Xem chi tiết</button>
+                                        {{-- <a href="{{ route('bill_detail',
                                         [
                                             'id_bill'=> $bill->id
-                                        ]) }}" class="btn btn-warning">Xem chi tiết</a>
+                                        ]) }}" class="btn btn-warning">Xem chi tiết</a> --}}
                                     </td>
 
                                 </tr>
