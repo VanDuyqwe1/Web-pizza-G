@@ -58,9 +58,9 @@ Route::patch('update-cart', [ProductController::class, 'update'])->name('update.
 Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
 
 // route add product cua Tien
-Route::get('/', function () {
-    return view('admin.login');
-});
+// Route::get('/', function () {
+//     return view('admin.login');
+// });
 
 Route::get('admin/login', function () {
     return view('admin.login');
