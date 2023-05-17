@@ -13,9 +13,13 @@ class ProductController extends Controller
      */
     public function index()
     {
+        
+    }
+    public function showBestSaleProduct()
+    {
         $products = Product::all();
 
-        $productBestSale = DB::table('products')->orderBy('count_buy', 'desc')->limit(4)->get();
+        $productBestSale = DB::table('products')->orderBy('count_buy', 'desc')->limit(5)->get();
 
         $productsLLatest = DB::table('products')->orderBy('count_buy', 'asc')->limit(3)->get();
 

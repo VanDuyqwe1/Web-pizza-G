@@ -25,11 +25,15 @@ use App\Http\Controllers\EditingProductController;
 
 Auth::routes();
 // Route::get('/', [ProductController::class, 'index']);
-
+// Đăng nhập
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
-Route::get('/', [CustomAuthController::class, 'dashboard']); 
-
+// Route::get('/', [CustomAuthController::class, 'dashboard']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+//Duy
+Route::get('/homepage', [App\Http\Controllers\HomeController::class, 'showBestSaleProduct'])->name('home');
+
+
+
 Route::get('voucher', [CustomAuthController::class, 'voucher'])->name('voucher');
 Route::get('promotion', [CustomAuthController::class, 'promotion'])->name('promotion');
 Route::get('menu', [CustomAuthController::class, 'menu'])->name('menu');
@@ -42,8 +46,6 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 //  Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::get('/tracking', [BillController::class, 'index']);

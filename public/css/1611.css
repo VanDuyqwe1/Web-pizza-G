@@ -15,6 +15,10 @@
   height: 100%;
   overflow: hidden;
 }
+.type-1611 .collection ul li .image-intagram .thunho{
+  width: 120px;
+  height: 120px;
+}
 .type-1611 .collection ul li .image-intagram a {
   display: block;
   width: 100%;
