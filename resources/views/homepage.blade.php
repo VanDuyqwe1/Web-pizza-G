@@ -1,57 +1,200 @@
+@extends('dashboard')
+@section('content')
+    <!-- Start Hero -->
+    <div class="type-1602">
+        <div class="content">
+            <div class="bannervideo">
+                <img src="{{ asset('images/FoodVVD.jpg') }}" alt="">
+                
+            </div>
+    
+        </div>
+    
+    </div>
+  
 
-<!DOCTYPE HTML>
-<?php
+    <div class="type-1603">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <div class="item">
+                            <a href="#" class="imga">
+                                <img src="{{ asset('images/' . $productBestSale[0]->image) }}" alt="null">
+                            </a>
+                            <div class="banner-info">
+                                <p><a href="#"><?php echo $productBestSale[0]->name ?></a></p>
+                                <h4>SL: <?php echo $productBestSale[0]->quantity ?></h4>
+                                <p><a class="shop-button" href="#">Mua ngay!</a></p>
+                            </div>
+    
+                        </div>
+                        <div class="item">
+                            <a href="#" class="imga">
+                                <img src="{{ asset('images/' . $productBestSale[1]->image) }}" alt="null">
+    
+    
+                            </a>
+                            <div class="banner-info">
+                                <p><a href="#"><?php echo $productBestSale[1]->name ?></a></p>
+                                <h4>SL: <?php echo $productBestSale[1]->quantity ?></h4>
+                                <p><a class="shop-button" href="#">Mua ngay!</a></p>
+                            </div>
+    
+                        </div>
+                    </div>
+    
+                    <div class="col-md-4">
+                        <div class="item">
+                            <a href="#" class="imga">
+                                <img src="{{ asset('images/' . $productBestSale[2]->image) }}" alt="null">
+    
+                            </a>
+                            <div class="banner-info">
+                                <p><a href="#"><?php echo $productBestSale[2]->name ?></a></p>
+                                <h4>SL: <?php echo $productBestSale[2]->quantity ?></h4>
+                                <p><a class="shop-button" href="#">Mua ngay!</a></p>
+                            </div>
+    
+                        </div>
+                    </div>
+    
+                    <div class="col-md-4">
+                        <div class="item">
+                            <a href="#" class="imga">
+                                <img src="{{ asset('images/' . $productBestSale[1]->image) }}" alt="null">
+    
+                            </a>
+                            <div class="banner-info">
+                                <p><a href="#"><?php echo $productBestSale[3]->name ?></a></p>
+                                <h4>SL: <?php echo $productBestSale[3]->quantity ?></h4>
+                                <p><a class="shop-button" href="#">Mua ngay!</a></p>
+                            </div>
+    
+                        </div>
+                        <div class="item">
+                            <a href="#" class="imga">
+                                <img src="{{ asset('images/' . $productBestSale[0]->image) }}" alt="null">
+    
+                            </a>
+                            <div class="banner-info">
+                                <p><a href="#"><?php echo $productBestSale[4]->name ?></a></p>
+                                <h4>SL: <?php echo $productBestSale[4]->quantity ?></h4>
+                                <p><a class="shop-button" href="#">Mua ngay!</a></p>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
 
-	//$url_path = "http://fit.tdc.edu.vn/courses/cdw2/tai/code_module_1600_v2";
+  
+    <div class="type-1611">
 
-    if (!class_exists('lessc')) {
-        $dir_block = dirname($_SERVER['SCRIPT_FILENAME']);
-    }
-?>
-<html lang="en">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="collection">
+                        <ul>
+                            <li>
+                               <div class="image-intagram">
+                                   <a href="#">
+                                       <i class="fa fa-instagram"></i>
+                                       <p>Công ty 1</p>
+                                   </a>
 
-    <head>
-        <title>Home</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="./css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <script src="./js/jquery-2.1.4.min.js" ></script>
-        <script src="./js/bootstrap.min.js" ></script>
-        <script src="./js/swiper.min.js"></script>
+                                   <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn1" class="thunho">
+                               </div>
+                            </li>
+                            <li>
+                                <div class="image-intagram">
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                        <p>Công ty 2</p>
+                                    </a>
 
-        <link href="./blocks/1601/css/1601.css" rel="stylesheet" type="text/css" />
-        <link href="./blocks/1602/css/1602.css" rel="stylesheet" type="text/css" />
-        <link href="./blocks/1603/css/1603.css" rel="stylesheet" type="text/css" />
-        <link href="./blocks/1604/css/1604.css" rel="stylesheet" type="text/css" />
-        <link href="./blocks/1605/css/1605.css" rel="stylesheet" type="text/css" />
-        <link href="./blocks/1607/css/1607.css" rel="stylesheet" type="text/css" />
-        <link href="./blocks/1608/css/1608.css" rel="stylesheet" type="text/css" />
-        <link href="./blocks/1609/css/1609.css" rel="stylesheet" type="text/css" />
-        <link href="./blocks/1610/css/1610.css" rel="stylesheet" type="text/css" />
-        <link href="./blocks/1611/css/1611.css" rel="stylesheet" type="text/css" />
-        <link href="./blocks/1612/css/1612.css" rel="stylesheet" type="text/css" />
+                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn2" class="thunho">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image-intagram">
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                        <p>Công ty 2</p>
+                                    </a>
 
-        <script src="./blocks/1601/js/1601.js" ></script>
-        <script src="./blocks/1604/js/1604.js" ></script>
-        <script src="./blocks/1608/js/1608.js" ></script>
-        <script src="./blocks/1610/js/1610.js" ></script>
+                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn3" class="thunho">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image-intagram">
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                        <p>Công ty 2</p>
+                                    </a>
+                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn4" class="thunho">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image-intagram">
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                        <p>Công ty 2</p>
+                                    </a>
+                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn5" class="thunho">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image-intagram">
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                        <p>Công ty 2</p>
+                                    </a>
+                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn6" class="thunho">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image-intagram">
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                        <p>Công ty 2</p>
+                                    </a>
+                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn7" class="thunho">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image-intagram">
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                        <p>Công ty 2</p>
+                                    </a>
+                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn8" class="thunho">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image-intagram">
+                                    <a href="#">
+                                        <i class="fa fa-instagram"></i>
+                                        <p>Công ty 2</p>
+                                    </a>
+                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn9" class="thunho">
+                                </div>
+                            </li>
 
-        <!-- <link rel="stylesheet" href="./blocks/1601/css/d.css"> -->
+                        </ul>
+                    </div>
 
-    </head>
+                </div>
 
-    <body>
-        
-        <?php include $dir_block.'/blocks/1601/1601-content.php'; ?>
-        <?php include $dir_block.'/blocks/1602/1602-content.php'; ?>
-        <?php include $dir_block.'/blocks/1603/1603-content.php'; ?>
-        
-        
-        
-        <?php include $dir_block.'/blocks/1611/1611-content.php'; ?>
-        <?php include $dir_block.'/blocks/1612/1612-content.php'; ?>
+            </div>
+        </div>
 
-    </body>
 
-</html>
+</div>
+
+   
+   
+@endsection
