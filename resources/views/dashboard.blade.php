@@ -27,21 +27,30 @@
     {{-- footer css --}}
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/test.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/1602.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/1603.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/1611.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/1612.css') }}" rel="stylesheet" type="text/css" />
+
+    <link href="{{ asset('css/1604.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/1605.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/dialog.css') }}" rel="stylesheet" type="text/css" />
+    
+
+    {{-- footer js --}}
+    <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/swiper.min.js') }}"></script>
+    <script src="{{ asset('js/1604.js') }}"></script>
+    <script src="{{ asset('js/1608.js') }}"></script>
+    <script src="{{ asset('js/dialog.js') }}"></script>
 
     {{-- <link href="{{ asset('storage/css/tobii.min.css') }}" type="text/css" rel="stylesheet" />
     <link href="{{ asset('storage/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('storage/css/style.min.css') }}" rel="stylesheet" type="text/css" id="theme-opt" />
     <link href="{{ asset('storage/css/animate.min.css') }}" rel="stylesheet"> --}}
 
-    {{-- footer js --}}
-    <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/swiper.min.js') }}"></script>
     {{-- <script src="{{ asset('js/1601.js') }}"></script>
     <script src="{{ asset('js/1604.js') }}"></script>
     <script src="{{ asset('js/1608.js') }}"></script>

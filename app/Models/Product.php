@@ -9,6 +9,11 @@ use App\Models\Base;
 class Product extends Base
 {
     use HasFactory;
+
+    public function options()
+    {
+        return $this->belongsToMany(Option::class, 'product_option', 'product_id', 'option_id');
+    }
 	/*
     public $title = "Sản phẩm";
     public function configs()

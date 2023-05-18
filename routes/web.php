@@ -27,16 +27,16 @@ Auth::routes();
 // Route::get('/', [ProductController::class, 'index']);
 // Đăng nhập
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
-// Route::get('/', [CustomAuthController::class, 'dashboard']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-//Duy
+//Duy homepage
 Route::get('/homepage', [App\Http\Controllers\HomeController::class, 'showBestSaleProduct'])->name('home');
-
+//Duy menu
+Route::get('menu', [ProductController::class, 'showProductRoot'])->name('menu');
 
 
 Route::get('voucher', [CustomAuthController::class, 'voucher'])->name('voucher');
 Route::get('promotion', [CustomAuthController::class, 'promotion'])->name('promotion');
-Route::get('menu', [CustomAuthController::class, 'menu'])->name('menu');
+//Route::get('menu', [CustomAuthController::class, 'menu'])->name('menu');
 Route::get('orderTracking', [CustomAuthController::class, 'orderTracking'])->name('orderTracking');
 Route::get('storeListing', [CustomAuthController::class, 'storeListing'])->name('storeListing');
 Route::get('blog', [CustomAuthController::class, 'blog'])->name('blog');
@@ -94,7 +94,7 @@ Route::post("/admin/editing/{model}",[EditingProductController::class,'store'])-
 
 Route::get('cart', 'CartController@product');
 Route::match(['get','post'],'add-cart','CartController@addToCart');
-Route::get('menu', 'CartController@index');  
+//Route::get('menu', 'CartController@index');  
 Route::get('cart', 'CartController@cart')->name('cart');
 Route::get('add-to-cart/{id}','CartController@addToCart')->name('add.to.cart');
 Route::patch('update-cart', 'CartController@update')->name('update.cart');
