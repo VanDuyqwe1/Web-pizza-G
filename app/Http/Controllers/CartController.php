@@ -143,7 +143,8 @@ class CartController extends Controller
         
     }
     public function deleteCartProduct($id){
-        
+        DB::table('detail_cart')->where('id_product',$id)->delete();
+        return redirect('cart');
         
     }
     /**
