@@ -38,6 +38,10 @@ Route::post('menu/{product_id}', [ProductController::class, 'addProduct'])->name
 Route::get('menu', [ProductController::class, 'showProductRoot'])->name('menu');
 // homepage
 Route::get('/homepage', [App\Http\Controllers\HomeController::class, 'showBestSaleProduct'])->name('home');
+// search
+Route::get('/autocomplate-search', [ProductController::class, 'autocompleteSearch']);
+Route::post('/thucdon', [ProductController::class, 'handleForm'])->name('search-keyword-product');
+
 
 
 Route::get('voucher', [CustomAuthController::class, 'voucher'])->name('voucher');

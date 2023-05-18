@@ -1,9 +1,31 @@
 @extends('dashboard')
 @section('content')
+    <div class="container">
+        {{-- form search --}}
+        <div class="" style="margin-top: 20px; margin-bottom:50px;">
+            <div class="form-group" style="">
+                <form action="{{ route('search-keyword-product') }}" method="post">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" name="search" id="search" placeholder="Search" class="form-control"
+                        value="{{ old('search') }}">
+                        </div>
+                        <div class="col-md-1"> <button class="btn btn-outline-success btn-primary" type="submit">Search</button></div>
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="type-1605">
         <!--content-->
         <div class="content">
             <div class="container">
+
+
+
+
                 @php
                     function temp($categories, $parent_id = 0, $open = '')
                     {
@@ -47,7 +69,7 @@
             <div class="product-collateral">
                 <ul class="productabtitle nav-pills  ">
                 </ul>
-                <div class="tabs">
+                <div class="tabs" style="background: #cccaca; ">
                     <div class="tab-content">
                         <div id="home" class="tab-pane fade in active ">
                             <div class="frameswiper">
@@ -56,9 +78,9 @@
                                     <div class="swiper-wrapper">
 
                                         @foreach ($products as $i)
-                                            <div class="swiper-slide">
+                                            <div class="swiper-slide" >
 
-                                                <div class="item">
+                                                <div class="item" style="border: 1px solid #7e7979; height: 450px;">
                                                     <div class="imageitem">
                                                         <a href="#">
                                                             <img src="{{ asset('images/' . $i->image) }}" class="tpfclick"
@@ -113,9 +135,9 @@
                                         @endforeach
 
                                     </div>
-                                    <div class="swiper-button-next"><i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                    <div class="swiper-button-next" ><i class="fa fa-chevron-right" aria-hidden="true"></i>
                                     </div>
-                                    <div class="swiper-button-prev"><i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                    <div class="swiper-button-prev" ><i class="fa fa-chevron-left" aria-hidden="true"></i>
                                     </div>
 
                                 </div>
@@ -125,7 +147,7 @@
                     </div>
                 </div>
 
-                <a href="#" class="viewall">VIEW ALL</a>
+                
             </div>
         </div>
     </div>
@@ -184,8 +206,8 @@
                     action="{{ route('add_Product', ['product_id' => $i->id]) }}">
                     @csrf
                     <label for="kich-co" style="margin-top: 20px; margin-left:20%">Kích thước bánh:
-                        <select class="form-select form-select-sm" aria-label=".form-select-sm example"
-                            name="kichCo" value="{{ old('kichCo') }}">
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="kichCo"
+                            value="{{ old('kichCo') }}">
                             <option selected value="0">Lựa chọn kích thước bánh</option>
                             @foreach ($i->options as $option)
                                 <option value="{{ $option->id }}">{{ $option->name }}</option>
@@ -202,7 +224,6 @@
             </div>
 
         </div>
-        
     @endforeach
 
 
@@ -250,4 +271,16 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <script>
+        var route = "{{ url('autocomplate-search') }}";
+        $('#search').typeahead({
+            source: function(query, process) {
+                return $.get(route, {
+                    query: query
+                }, function(data) {
+                    return process(data);
+                });
+            }
+        });
+    </script>
 @endsection
