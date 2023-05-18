@@ -71,7 +71,14 @@ class CartController extends Controller
         return view('cart',compact('products'),compact('detail_cart'));
     }
     public function addToCart(Request $request){
+        $data = $request->all();
         
+        //$customer_id = [Session::get('id')];
+        $user = [Auth::id()];
+        $data+=$user;
+        //echo "<pre>";print_r($data);die;
+        DB::table('detail_cart')->insert(['id_cart'=>$data[0],'id_product'=>$data['id'],'id_product_option'=>1,'quantity'=>1]);
+        return redirect('cart');
     }
 
     public function show(){
