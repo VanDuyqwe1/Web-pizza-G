@@ -22,7 +22,7 @@ class ProductController extends Controller
         $all_category = Category::all();
         $root_category = $all_category->where('parent_id', 0);
         self::format_tree($root_category,$all_category);
-        $categories_lv_2 = DB::table('categories')->where('parent_id', '1')->get();
+        $categories_lv_2 = Category::where('parent_id', '1')->get();
 
         //$products = DB::table('products')->where('category_id', $categories_lv_2[0]->id)->get();
         $categoryId = $categories_lv_2[0]->id;
@@ -46,6 +46,53 @@ class ProductController extends Controller
         }
     }
 
+    // Tìm sản phẩm theo menu
+    public function showProductById($id_category)
+    {
+        // Tìm category và product ban đầu
+        $all_category = Category::all();
+        $root_category = $all_category->where('parent_id', 0);
+        self::format_tree($root_category,$all_category);
+
+        // Lấy con của pizza thức uống các thứ
+        $categories_lv_2 = Category::where('parent_id', $id_category)->get();
+
+        // categories_lv_2 0 có giá trị 
+        // -> nhấn bò gà vịt các thứ
+        // -> nhấn vào thức uống tráng miệng
+        // Nếu lấy không được -> người dùng đang nhấn vào categories con & thức uống tráng miệng
+        $result = "";
+        if (count($categories_lv_2) == 0) {
+            // lấy những categori con cùng cấp
+            $parent_id = Category::where('id', $id_category)->get();
+
+            if ($parent_id[0]->parent_id != 0) {
+                $categories_lv_2 = Category::where('parent_id', $parent_id[0]->parent_id)->get();
+
+                //$products = DB::table('products')->where('category_id', $id_category)->get();
+                  // truy vấn cái products option
+                  $products = Product::where('category_id', $id_category)
+                  ->with('options')
+                  ->get();
+                 return view('menu', compact('root_category', 'products', 'result'));
+            }
+        }
+        if (count($categories_lv_2) != 0) { 
+            $products = Product::where('category_id', $categories_lv_2[0]->id)
+                ->with('options')
+                ->get();
+            return view('menu', compact('root_category', 'products', 'result'));
+        }
+        if (count($categories_lv_2) == 0) {
+            $products = Product::where('category_id', $id_category)
+            ->with('options')
+            ->get();
+            return view('menu', compact('root_category', 'products', 'result'));
+        }
+
+        
+    }
+    
     /**
      * Show the form for creating a new resource.
      */
