@@ -1,0 +1,217 @@
+.type-1612 {
+  color: #fff;
+  background: #000;
+  margin-top: 50px;
+}
+.type-1612 .custom {
+  padding-top: 25px;
+}
+.type-1612 .custom .logo {
+  display: inline-block;
+}
+.type-1612 .custom .list-menu {
+  max-height: 5px;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+.type-1612 .custom .list-menu ul li {
+  display: inline-block;
+}
+.type-1612 .custom .list-menu ul li a {
+  color: #999;
+  text-decoration: none;
+}
+.type-1612 .custom .list-menu ul li a:hover {
+  color: #fff;
+}
+.type-1612 .custom .list-menu ul li a:after {
+  content: '-';
+  padding: 0 6px;
+  color: #999;
+}
+.type-1612 .custom .list-image {
+  text-align: center;
+}
+.type-1612 .custom .list-image ul li {
+  display: inline-block;
+  margin-left: 10px;
+}
+.type-1612 .information-header .account .title-footer {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.type-1612 .information-header .account ul {
+  padding-left: 15px;
+}
+.type-1612 .information-header .account ul li {
+  margin-bottom: 12px;
+}
+.type-1612 .information-header .account ul li a {
+  color: #999;
+  text-decoration: none;
+}
+.type-1612 .information-header .account ul li a:hover {
+  color: #fff;
+}
+.type-1612 .information-header .orders .title-footer {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.type-1612 .information-header .orders ul {
+  padding-left: 15px;
+}
+.type-1612 .information-header .orders ul li {
+  margin-bottom: 12px;
+  position: relative;
+}
+.type-1612 .information-header .orders ul li a {
+  color: #999;
+  text-decoration: none;
+}
+.type-1612 .information-header .orders ul li a:hover {
+  color: #fff;
+}
+.type-1612 .information-header .information .title-footer {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.type-1612 .information-header .information ul {
+  padding-left: 15px;
+}
+.type-1612 .information-header .information ul li {
+  margin-bottom: 12px;
+}
+.type-1612 .information-header .information ul li a {
+  color: #999;
+  text-decoration: none;
+}
+.type-1612 .information-header .information ul li a:hover {
+  color: #fff;
+}
+.type-1612 .information-header .contact .title-footer {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.type-1612 .information-header .contact p {
+  margin-bottom: 22px;
+}
+.type-1612 .information-header .contact p span i {
+  color: #ccc;
+  font-size: 16px;
+}
+.type-1612 .letter-follow .letter {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.type-1612 .letter-follow .letter h3 {
+  display: inline-block;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 14px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+.type-1612 .letter-follow .letter .form-newsletter {
+  display: inline-block;
+}
+.type-1612 .letter-follow .letter .form-newsletter form .form-email {
+  display: inline-block;
+}
+.type-1612 .letter-follow .letter .form-newsletter form .form-email input {
+  background: #101010;
+  border: none;
+  color: #333333;
+  height: 40px;
+  width: 200px;
+}
+.type-1612 .letter-follow .letter .form-newsletter form .submit-form {
+  display: inline-block;
+  float: right;
+  position: relative;
+}
+.type-1612 .letter-follow .letter .form-newsletter form .submit-form input {
+  background: #fab502;
+  border: none;
+  height: 40px;
+  width: 50px;
+  margin: 0;
+}
+.type-1612 .letter-follow .letter .form-newsletter form .submit-form i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 20px;
+}
+.type-1612 .letter-follow .follow {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.type-1612 .letter-follow .follow .list-follow {
+  text-align: inherit;
+  font-size: 9px;
+}
+.type-1612 .letter-follow .follow .list-follow .title-follow {
+  display: inline-block;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.type-1612 .letter-follow .follow .list-follow .icon-follow {
+  display: inline-block;
+}
+.type-1612 .letter-follow .follow .list-follow .icon-follow a {
+  position: relative;
+  margin-right: 5px;
+}
+.type-1612 .letter-follow .follow .list-follow .icon-follow a i {
+  font-size: 25px;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+}
+.type-1612 .letter-follow .follow .list-follow .icon-follow a:hover {
+  top: -5px;
+}
+.type-1612 .letter-follow .follow .list-follow .icon-follow .fa-facebook {
+  padding-top: 8px;
+  background: #4968a9;
+}
+.type-1612 .letter-follow .follow .list-follow .icon-follow .fa-twitter {
+  padding-top: 8px;
+  background: #11c2ea;
+}
+.type-1612 .letter-follow .follow .list-follow .icon-follow .fa-linkedin {
+  padding-top: 8px;
+  background: #3f93d3;
+}
+.type-1612 .letter-follow .follow .list-follow .icon-follow .fa-google-plus {
+  padding-top: 8px;
+  background: #ed321e;
+}
+.type-1612 .letter-follow .follow .list-follow .icon-follow .fa-pinterest {
+  padding-top: 8px;
+  background: #ed001c;
+}
+.type-1612 .letter-follow .follow .list-follow .icon-follow .fa-skype {
+  padding-top: 8px;
+  background: #11ddea;
+}
+.type-1612 .copyright {
+  margin: 0;
+  padding: 0;
+}
+.type-1612 .copyright p {
+  display: inline-block;
+  color: #999;
+  margin-top: 10px;
+}
+.type-1612 .copyright p a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+}
