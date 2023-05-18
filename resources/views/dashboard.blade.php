@@ -193,6 +193,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ URL::to('/login-checkout') }}">Checkout</a>
                             </li>
+                            <?php
                                         }
                                         ?>
 

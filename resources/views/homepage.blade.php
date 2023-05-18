@@ -62,7 +62,7 @@
                     <div class="col-md-4">
                         <div class="item">
                             <a href="#" class="imga">
-                                <img src="{{ asset('images/' . $productBestSale[1]->image) }}" alt="null">
+                                <img src="{{ asset('images/' . $productBestSale[3]->image) }}" alt="null">
     
                             </a>
                             <div class="banner-info">
@@ -74,7 +74,7 @@
                         </div>
                         <div class="item">
                             <a href="#" class="imga">
-                                <img src="{{ asset('images/' . $productBestSale[0]->image) }}" alt="null">
+                                <img src="{{ asset('images/' . $productBestSale[4]->image) }}" alt="null">
     
                             </a>
                             <div class="banner-info">

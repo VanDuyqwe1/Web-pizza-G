@@ -95,8 +95,8 @@
                                                         </div>
                                                         <div class="price">
                                                             <p>
-                                                                <del><span>10.0 £</span></del>
-                                                                <ins><span>7.0 £</span></ins>
+                                                                <del><span></span></del>
+                                                                <ins><span>{{ number_format($i->price) }} VND</span></ins>
                                                             </p>
                                                         </div>
                                                         <div class="starrating">
