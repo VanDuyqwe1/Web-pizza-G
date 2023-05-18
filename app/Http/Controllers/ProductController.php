@@ -39,11 +39,7 @@ class ProductController extends Controller
                
     }
     
-    function format_tree($root_category, $all_category)
-
-        return view('menu', compact('root_category', 'products'));
-               
-    }
+   
     
     function format_tree($root_category, $all_category)
     {
