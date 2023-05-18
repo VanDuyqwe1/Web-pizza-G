@@ -1,0 +1,141 @@
+/*phần tử phủ toàn màn hình*/
+#over {
+    display: none;
+    background: #414040;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: 1;
+}
+a, a:visited, a:active{
+    text-decoration:none;
+}
+/* lớp login - cửa sổ đăng nhập*/
+.login
+{
+    
+    position: fixed;
+    background-color:#2bbfe4;
+    height:600px;
+    width:800px;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:14px;
+    padding-bottom:5px;
+    display:none;
+    overflow:hidden;
+    
+    z-index:2;/*đặt z-index để nó nổi bật và chồng lên phần tử khác trong trang*/
+    top:10%;
+    left:50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    border: 2px solid #4e03ff;
+    box-shadow: 1px 1px 1px 5px #AAA;
+}
+.soluong{
+    width: 500px;
+    
+}
+.wrapper{
+    
+    
+}
+.login .login_title
+{
+    color:rgb(30, 53, 59);
+    
+    padding:8px 0 5px 8px;
+    text-align:center;
+}
+
+.detail{
+    margin: 5px 20px;
+    height: 300px;
+}
+.detail .col-md-8{
+    height: 500px;
+    overflow: auto;
+}
+.detail img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+
+
+.product-detail{
+    margin: 5px 20px;
+    height: 250px;
+}
+.product-detail .col-md-8{
+    height: 200px;
+    overflow: auto;
+}
+.product-detail img{
+    width: 200px;
+    height: 200px;
+}
+.login-content
+{
+    padding-left:35px;
+    background-color:white;
+    margin-left:5px;
+    margin-right:5px;
+    height:auto;
+    padding-top:15px;
+    overflow:hidden;
+    border-radius: 20%;
+    border: 2px solid #4e03ff;
+}
+	
+.close {
+    float: right;
+    margin-right:5px;
+    font-size: 2em;
+}	
+.button{
+    display: inline-block;
+    min-width: 46px;
+    text-align: center;
+    color: #fffafa;
+    font-size: 14px;
+    font-weight: 700;
+    height: 36px;
+    padding: 0px 8px;
+    line-height: 36px;
+    border-radius: 4px;
+    transition: all 0.218s ease 0s;
+    border: 1px solid #DCDCDC;
+    background-color: #f56437;
+    background-image: -moz-linear-gradient(center top , #F5F5F5, #F1F1F1);
+    cursor: pointer;
+}
+.button:hover{
+     border: 1px solid #DCDCDC;
+    text-decoration: none;
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+}
+.login input
+{
+    border:1px solid #D5D5D5;
+    border-radius:5px;
+    box-shadow:1px 1px 5px rgba(0,0,0,.07) inset;
+    color:black;
+    font:12px/25px "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding:0px 8px;
+    height:28px;
+    width:28px;
+    word-spacing:0.1em;
+}
+.submit-button{
+    
+    padding: auto;
+    margin: 15px 75px;
+    width: 150px;
+}

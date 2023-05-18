@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Bill;
 use App\Models\BillDetail;
 use App\Models\Status;
+use App\Models\Voucher;
 use Illuminate\Support\Str;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BillController extends Controller
 {
@@ -19,13 +21,19 @@ class BillController extends Controller
      */
     public function index($id_user = 10, $id_status = 1)
     {
-
+        if (Auth::check() ) {
+            $id_user =  Auth::User()->id;
+            # code...
+        }
+        else {
+            return(view('auth.login'));
+        }
         // Danh sách các trạng thái trả về để hiển thị butotn 
         $list_status = Status::all();
 
         // Danh sách các đơn hàng có id_status mặc đinh là 1 (chuẩn bị đơn hàng) để hiển thị đầu tiên
         $list_bills = Bill::where('id_status', $id_status)
-            ->where('id_user', 10)
+            ->where('id_user',$id_user)
             ->join('vouchers', 'bills.id_voucher', '=', 'vouchers.id')
             ->select('bills.*', 'vouchers.discount')
             ->get();
@@ -63,6 +71,7 @@ class BillController extends Controller
     public function show($slug, $id_status)
     {
 
+        $id_user =  Auth::User()->id;
         // Danh sách các trạng thái trả về để hiển thị butotn 
         $list_status = Status::all();
 
@@ -73,7 +82,7 @@ class BillController extends Controller
         //     ->select('bills.*', 'vouchers.discount')
         //     ->get();
         $list_bills = Bill::where('id_status', Crypt::decryptString($id_status))
-            ->where('id_user', 10)
+            ->where('id_user', $id_user)
             ->leftJoin('vouchers', 'bills.id_voucher', '=', 'vouchers.id')
             ->select('bills.*', 'vouchers.discount')
             ->get();
@@ -113,7 +122,12 @@ class BillController extends Controller
                 'products.price'
             )
             ->get();
-        echo $result;
+
+
+        $voucher = Bill::where('id', $id_bill)->first();
+
+
+
         return view('billDetail', compact('list_status', 'bill', 'products', 'result'));
     }
 

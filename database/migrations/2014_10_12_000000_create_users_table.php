@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->boolean('role')->default(0);
             $table->boolean('gender')->default(0);
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

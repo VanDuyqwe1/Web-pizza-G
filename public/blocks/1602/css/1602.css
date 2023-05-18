@@ -1,0 +1,99 @@
+.type-1602 {
+  width: 100%;
+  height: auto;
+  max-height: 750px;
+  position: relative;
+}
+.type-1602 .content {
+  height: auto;
+}
+.type-1602 .content .bannervideo {
+  overflow: hidden;
+}
+.type-1602 .content .bannervideo img {
+  width: 100%;
+  height: 750px;
+  background: rgba(0,0,0,0.5);
+}
+.type-1602 .content .bannervideo .context {
+  width: auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  color: #fff;
+}
+.type-1602 .content .bannervideo .context h2 {
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 6px;
+  margin-bottom: 11px;
+}
+.type-1602 .content .bannervideo .context .shop-button {
+  width: 125px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #fab502;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+  margin: 0 auto;
+  color: #fff;
+}
+.type-1602 .content .bannervideo .context .shop-button:hover {
+  animation: zoom 1.2s infinite;
+}
+/* .type-1602 .content .bannervideo:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  content: "";
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+} */
+@media (max-width: 768px) {
+  .type-1602 .content .container .row .col-sm-5 .number {
+    top: 0px;
+  }
+  .type-1602 .content .container .row .col-sm-5 .number .numbercontent {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .type-1602 .content .container .row .col-sm-7 .context {
+    left: 50%;
+    bottom: 0px;
+    transform: translate(-50%,50%);
+  }
+  .type-1602 .content .container .row .col-sm-7 .context .contextcontent {
+    max-width: 100%;
+    text-align: center;
+  }
+  .type-1602 .content .container .row .col-sm-7 .context .contextcontent a {
+    margin: 0 auto;
+  }
+}
+@keyframes zoom {
+  0% {
+    transform: scale(0.9);
+  }
+  25% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
