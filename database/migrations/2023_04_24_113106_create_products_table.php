@@ -15,12 +15,12 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('image');
-            $table->integer('quantity')->default(100);
+            $table->integer('quantity')->default(10);
             $table->string('description');
             $table->integer('price');
             $table->integer('count_buy')->default(0);
             $table->integer('category_id');
-            $table->timestamp('created_at');
+            
 
             
         });

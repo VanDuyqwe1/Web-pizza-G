@@ -1,5 +1,5 @@
 <?php
-
+// ok
 namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -59,6 +59,10 @@ class CategoriesTableSeeder extends Seeder
             ],[
                 'name' => 'Ăn chay',
                 'parent_id' => 7,
+            ],
+            [
+                'name' => 'Kem',
+                'parent_id' => 0,
             ],
 
         ]);
