@@ -1,0 +1,14 @@
+.filter-item {
+    background: #fff;
+    padding: 20px;
+
+}
+
+.filter-item {
+    font-weight: bold;
+} 
+
+.filter-item{
+    display: inline-block;
+    margin-right: 15px;
+}
