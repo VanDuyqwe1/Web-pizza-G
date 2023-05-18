@@ -51,7 +51,7 @@ class CartController extends Controller
         //lay id dang nhap cua nguoi dung
         $customer_id = Session::get('id');
         
-        echo "$user";
+        
 
         $products = DB::table('products')
         

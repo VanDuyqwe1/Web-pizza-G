@@ -5,12 +5,14 @@ use Cart;
 use DB;
 use Session;
 use App\Order;
-use App\Product;
+// use App\Product;
+use App\Models\Product;
 use App\OrderProduct;
 use App\Mail\OrderPlaced;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\CheckoutRequest;
+use Illuminate\Support\Facades\Auth;
 //use Gloudemans\Shoppingcart\Facades\Cart;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorException;
@@ -58,23 +60,20 @@ public function add_customer(Request $request){
         return redirect()->back()->with('success', 'Product added to cart successfully!');
         
     }
-    public function cart()
-    {
-        return view('cart');
+    public function product(){
+        $products = Product::all();
+        
+        return view('checkout', compact('products'));
     }
     public function destroyCart(){
         Cart::destroy();
     }
     public function save_checkout_customer(Request $request){
-        $data = array();
-    $data['name'] = $request->name;
-    $data['email'] = $request->email;
-    $data['phone'] = $request->phone;
-    $data['address'] = $request->address;
-
-    $user_id = DB::table('checkout')->insertGetId($data);
-
-    Session::put('id',$user_id);
+       $customer_id = Session::get('id');
+        $user = Auth::id();
+        
+        DB::table('detail_cart')->where('id_cart',$user)->delete();
+        return redirect('checkout')->with('success', 'Thanh toan thanh cong');
     // Session::put('name',$request->name);
     //Cart::destroy();
     }
@@ -98,3 +97,5 @@ public function add_customer(Request $request){
     
     }
 }
+    
+    

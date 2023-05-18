@@ -109,7 +109,8 @@ Route::delete('remove-from-cart', 'CartController@remove')->name('remove.from.ca
 Route::get('/cart/update-quantity/{id}/{quantity}','CartController@updateCartQuantity');
 Route::get('/cart/delete-product/{id}','CartController@deleteCartProduct');
 
-
+Route::get('cart', 'CheckoutController@product');
+Route::get('cart', 'CartController@cart')->name('cart');
 Route::get('checkout', 'CheckoutController@index');
 //Route::delete('/destroyCart', 'CheckoutController@destroyCart');
 Route::get('/login-checkout','CheckoutController@login_checkout');
