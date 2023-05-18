@@ -1,0 +1,343 @@
+.type-1604 {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: #cccaca;
+}
+.type-1604 .product-collateral p {
+  margin: 10px 0;
+}
+.type-1604 .product-collateral ul {
+  list-style: none;
+  margin-bottom: 0;
+}
+.type-1604 .product-collateral .productabtitle {
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  clear: both;
+  text-align: center;
+}
+.type-1604 .product-collateral .productabtitle li {
+  display: inline-block;
+  background: #fff;
+  text-align: center;
+}
+.type-1604 .product-collateral .productabtitle li a.selected {
+  background: #262626;
+  color: #fff;
+  display: block;
+}
+.type-1604 .product-collateral .productabtitle li a:hover {
+  color: #fff;
+  background: #fab502;
+}
+.type-1604 .product-collateral .productabtitle li a {
+  text-transform: uppercase;
+  background: #ededed;
+  color: #000;
+  display: block;
+  font-size: 12px;
+  width: auto;
+  padding: 0 15px;
+  height: 35px;
+  text-decoration: none;
+  transition: .5s;
+  line-height: 35px;
+  text-align: center;
+}
+.type-1604 .product-collateral .tabs {
+  padding: 25px 0px;
+  background: #FFF;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  padding-top: 15px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper {
+  display: flex;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item {
+  width: 100%;
+  height: auto;
+  margin: 15px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem {
+  width: 100%;
+  height: 250px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  transition: .5s;
+  position: relative;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem a:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .5s;
+  opacity: 0;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem a span {
+  display: block;
+  width: 40px;
+  height: 20px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #fd6656;
+  font-size: 13px;
+  line-height: 20px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem a img {
+  width: 100%;
+  height: 100%;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem:hover a:before {
+  opacity: 1;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem .framesubswiper {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  padding: 10px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem .framesubswiper .swiper-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem .framesubswiper .swiper-container .swiper-wrapper {
+  display: flex;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem .framesubswiper .swiper-container .swiper-wrapper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem .framesubswiper .swiper-container .swiper-wrapper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem .framesubswiper .swiper-container .swiper-wrapper .swiper-slide img:hover {
+  cursor: pointer;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem .framesubswiper .swiper-container .swiper-button-next2 {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem .framesubswiper .swiper-container .swiper-button-next2:hover i {
+  color: #fab502;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem .framesubswiper .swiper-container .swiper-button-prev2 {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .imageitem .framesubswiper .swiper-container .swiper-button-prev2:hover i {
+  color: #fab502;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .title h3 {
+  font-size: 14px;
+  margin: 15px 0px;
+  font-weight: 400;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .title h3 a {
+  color: #555;
+  text-decoration: none;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .title h3 a:hover {
+  color: #fab502;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .price {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .price del {
+  color: #ccc;
+  font-size: 14px;
+  margin: 0 2px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .price ins {
+  text-decoration: none;
+  color: #fab502;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 2px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .starrating ul {
+  margin: 0;
+  padding: 0;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .starrating ul li {
+  display: inline-block;
+  list-style: none;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .starrating ul li a {
+  color: #333;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .buttonit a {
+  display: inline-block;
+  text-decoration: none;
+  color: #555;
+  height: 35px;
+  line-height: 35px;
+  border: 1px solid #ededed;
+  padding: 0 15px;
+  font-size: 10px;
+  transition: .5s;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .buttonit a:hover {
+  background: #fab502;
+  color: #fff;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .buttonacount a {
+  opacity: 0;
+  transition: .5s;
+  padding: 5px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .buttonacount a i {
+  color: #fab502;
+  font-size: 12px;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item .infoitem .buttonacount a:hover i {
+  color: #333;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item:hover .imageitem {
+  border: none;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-wrapper .swiper-slide .item:hover .infoitem .buttonacount a {
+  opacity: 1;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-button-next {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 44%;
+  transform: translate(-50%,-15%);
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-button-next:hover i {
+  color: #fab502;
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-button-prev {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 46%;
+  transform: translate(-50%,-15%);
+}
+.type-1604 .product-collateral .tabs .tab-content .frameswiper .swiper-container .swiper-button-prev:hover i {
+  color: #fab502;
+}
+.type-1604 .product-collateral .nav-pills > li.active > a,
+.type-1604 .product-collateral .nav-pills li a:focus {
+  font-weight: bold;
+  color: #fff;
+  background: #fab502;
+}
+.type-1604 .product-collateral .nav-pills > li {
+  float: none;
+}
+.type-1604 .product-collateral .nav-pills > li > a {
+  border-radius: 0px;
+}
+.type-1604 .product-collateral .viewall {
+  display: block;
+  background-color: #fff;
+  color: #222;
+  border: 1px solid #222;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 40px;
+  text-decoration: none;
+}
+.type-1604 .product-collateral .viewall:hover {
+  background: #fab502;
+  color: #fff;
+  border: none;
+}
+@keyframes zoom {
+  0% {
+    transform: scale(0.9);
+  }
+  25% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  75% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
