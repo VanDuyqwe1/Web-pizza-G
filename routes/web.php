@@ -28,10 +28,16 @@ Auth::routes();
 // Đăng nhập
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-//Duy homepage
-Route::get('/homepage', [App\Http\Controllers\HomeController::class, 'showBestSaleProduct'])->name('home');
-//Duy menu
+
+// route duy
+Route::get('menu/{id_category}', [ProductController::class, 'showCategoryRoot']);
+Route::get('menu/{id_category}', [ProductController::class, 'showProductById'])->name('category-products-custom');
+// add product
+Route::post('menu/{product_id}', [ProductController::class, 'addProduct'])->name('add_Product');
+// menu
 Route::get('menu', [ProductController::class, 'showProductRoot'])->name('menu');
+// homepage
+Route::get('/homepage', [App\Http\Controllers\HomeController::class, 'showBestSaleProduct'])->name('home');
 
 
 Route::get('voucher', [CustomAuthController::class, 'voucher'])->name('voucher');
@@ -72,10 +78,7 @@ Route::get('admin/login', function () {
 Route::post('/admin/login',[AdminController::class,'loginPost'])->name('admin.loginPost');
 Route::get('/admin/logout',[AdminController::class,'logout'])->name('admin.logout');
 
-// route duy
-Route::get('thucdon', [ProductController::class, 'showCategoryRoot']);
-Route::get('thucdon/{id_category}', [ProductController::class, 'showCategoryRoot']);
-Route::get('thucdon/{id_category}', [ProductController::class, 'showProductById'])->name('category-products-custom');
+
 
 //route tien
 Route::middleware(['admin'])->group(function ()
