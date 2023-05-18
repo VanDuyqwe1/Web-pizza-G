@@ -140,7 +140,8 @@ class CartController extends Controller
         
     }
     public function updateCartQuantity($id=null,$quantity=null){
-        
+        DB::table('detail_cart')->where('id_product',$id)->increment('quantity',$quantity);
+        return redirect('cart');
     }
     public function deleteCartProduct($id){
         DB::table('detail_cart')->where('id_product',$id)->delete();
