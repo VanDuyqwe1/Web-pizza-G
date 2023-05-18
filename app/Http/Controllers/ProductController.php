@@ -127,6 +127,28 @@ class ProductController extends Controller
 
         return view('menu', compact('root_category', 'products'));
     }
+    // Tìm kiếm sản phẩm và hiện ra trên thanh search
+    public function autocompleteSearch(Request $request)
+    {
+        $query = $request->get('query');
+        $filterResult = Product::where('name', 'LIKE', '%'. $query . '%')->get();
+        return response()->json($filterResult);
+    }
+    public function handleForm(Request $request)
+    {
+        // Tìm category và product ban đầu
+        $all_category = Category::all();
+        $root_category = $all_category->where('parent_id', 0);
+        self::format_tree($root_category,$all_category);
+        $categories_lv_2 = DB::table('categories')->where('parent_id', '1')->get();
+
+        // tìm theo từ khóa
+        $keyword = $request->search;
+        $products = Product::where('name', 'LIKE', '%'. $keyword . '%')->get();
+
+        return view('menu', compact('root_category', 'products'));
+
+    }
 
     
     /**
