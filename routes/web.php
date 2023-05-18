@@ -92,11 +92,15 @@ Route::post("/admin/editing/{model}",[EditingProductController::class,'store'])-
 
 // route checkout cua Tai
 
+Route::get('cart', 'CartController@product');
+Route::match(['get','post'],'add-cart','CartController@addToCart');
 Route::get('menu', 'CartController@index');  
 Route::get('cart', 'CartController@cart')->name('cart');
 Route::get('add-to-cart/{id}','CartController@addToCart')->name('add.to.cart');
 Route::patch('update-cart', 'CartController@update')->name('update.cart');
 Route::delete('remove-from-cart', 'CartController@remove')->name('remove.from.cart');
+Route::get('/cart/update-quantity/{id}/{quantity}','CartController@updateCartQuantity');
+Route::get('/cart/delete-product/{id}','CartController@deleteCartProduct');
 
 
 Route::get('checkout', 'CheckoutController@index');
