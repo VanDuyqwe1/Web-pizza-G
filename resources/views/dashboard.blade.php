@@ -140,34 +140,40 @@
     </div> --}}
     <!-- top navbar -->
 
-    
-        <!-- navbar -->
-        <nav class="navbar navbar-expand-lg " id="navbar">
 
-            <div class="container-fluid ">
-                <a class="navbar-brand" href="#"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span><i class="fa-solid fa-bars" style="color: white;"></i></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <ul class="navbar-nav">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg " id="navbar">
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('promotion') }}">Khuyến Mãi</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('voucher') }}">Voucher</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ URL::to('/menu') }}">Thực Đơn</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="{{ route('orderTracking') }}">Theo Dõi Đơn Hàng</a>
-                            </li>
-                            <!--
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span><i class="fa-solid fa-bars" style="color: white;"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('promotion') }}">Khuyến Mãi</a>
+                        </li>
+                        <li class="nav-item">
+                            {{-- Admin --}}
+                            @if (Auth::check() && Auth::user()->role == 1)
+                                <a class="nav-link" href="{{ route('voucher-index') }}">Voucher</a>
+                            @else
+                                <a class="nav-link" href="{{ route('user_voucher') }}">Voucher</a>
+                            @endif
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ URL::to('/menu') }}">Thực Đơn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{ route('orderTracking') }}">Theo Dõi Đơn Hàng</a>
+                        </li>
+                        <!--
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('storeListing') }}">Danh Sách Cửa Hàng</a>
                                 </li>
@@ -187,7 +193,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ URL::to('/login-checkout') }}">Checkout</a>
                             </li>
-                            <?php
                                         }
                                         ?>
 

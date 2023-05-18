@@ -17,6 +17,11 @@ class VoucherController extends Controller
         $list_vouchers = Voucher::orderBy('id', 'desc')->paginate(5);
         return view('admin.voucher', compact('list_vouchers'));
     }
+    public function indextemp()
+    {
+        
+        return view('user.voucher');
+    }
 
 /**
  * Hàm trả về kết quả mà user tìm kiếm code voucher 

@@ -18,7 +18,7 @@ class ProductsTableSeeder extends Seeder
             // pizza hải sản
             [
                 'name' => 'Pizza Bangkok Cà Ri Xanh Tôm Gà - Bangkok Green Curry Half Half',
-                'image' => 'Menu+BG.jpg',
+                'image' => 'Menu_BG.jpg',
                 'description' => 'Phô Mai Mozzarella, Cà Ri Thái Xanh, Gà Viên, Tôm, Cà Chua, Lá Chanh, Bột Ớt.',
                 'price' => '209000',
                 'count_buy' => '10',
@@ -30,7 +30,7 @@ class ProductsTableSeeder extends Seeder
             // pizza hải sản
             [
                 'name' => 'Pizza Bangkok Cà Ri Xanh Tôm - Bangkok Green Curry Shrimp',
-                'image' => 'Menu+BG+full+tom.jpg',
+                'image' => 'Menu_BG_full_tom.jpg',
                 'description' => 'Phô Mai Mozzarella, Cà Ri Thái Xanh, Tôm, Cà Chua, Lá Chanh, Bột Ớt.',
                 'price' => '219000',
                 'count_buy' => '5',
@@ -159,7 +159,7 @@ class ProductsTableSeeder extends Seeder
             // pizza gà
             [
                 'name' => 'Pizza Bangkok Cà Ri Xanh Gà - Bangkok Green Curry Chicken',
-                'image' => 'Menu+BG+ful+ga.jpg',
+                'image' => 'Menu_BG_ful_ga.jpg',
                 'description' => 'Phô Mai Mozzarella, Cà Ri Thái Xanh, Gà Viên, Cà Chua, Lá Chanh, Bột Ớt.',
                 'price' => '209000',
                 'count_buy' => '35',
@@ -180,7 +180,7 @@ class ProductsTableSeeder extends Seeder
             // pizza heo
             [
                 'name' => 'Pizza Gà Phô Mai Thịt Heo Xông Khói - Cheesy Chicken Bacon',
-                'image' => 'Menu+BG+ful+ga.jpg',
+                'image' => 'Menu_BG_ful_ga.jpg',
                 'description' => 'Xốt Phô Mai, Thịt Gà, Thịt Heo Muối, Phô Mai Mozzarella, Cà Chua',
                 'price' => '179000',
                 'count_buy' => '52',
@@ -290,7 +290,7 @@ class ProductsTableSeeder extends Seeder
             ', 'count_buy' => '4', 'category_id' => 11,],
 
                         ['name' => 'Xúc Xích Xông Khói Đút Lò (4 miếng)
-            ', 'image' => 'MENU-MB_Xu%CC%81c-Xi%CC%81ch-Xo%CC%82ng-Kho%CC%81i-%C4%90u%CC%81t-Lo%CC%80+-+4.jpg',  'quantity' => '100', 'description' => 'Xúc Xích Xông Khói, Xốt BBQ
+            ', 'image' => 'MENU-MB_Xu%CC%81c-Xi%CC%81ch-Xo%CC%82ng-Kho%CC%81i-%C4%90u%CC%81t-Lo%CC%80_-_4.jpg',  'quantity' => '100', 'description' => 'Xúc Xích Xông Khói, Xốt BBQ
             ', 'price' => '49000
             ', 'count_buy' => '62', 'category_id' => 11,],
 
