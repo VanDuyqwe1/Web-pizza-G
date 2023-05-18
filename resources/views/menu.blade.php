@@ -156,6 +156,52 @@
                 </div>
             </div>
         </div>
+
+        {{-- add product --}}
+        <div id="add-product{{ $i->id }}" class="login">
+            <a href="#" class="close">
+                <div class="close">x</div>
+            </a>
+            <h1 class="login_title"> Lựa chọn món ăn</h1>
+
+            <div class="product-detail">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{ asset('images/' . $i->image) }}" alt="">
+                    </div>
+                    <div class="col-md-8">
+                        <h2 style="padding-top: 20px;">{{ $i->name }}</h2>
+                        <b style="display: inline;">Số lượng đang bán: </b>
+                        <p>{{ $i->quantity }}</p>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="wrapper">
+                <form method="post" class="login-content"
+                    action="{{ route('add_Product', ['product_id' => $i->id]) }}">
+                    @csrf
+                    <label for="kich-co" style="margin-top: 20px; margin-left:20%">Kích thước bánh:
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                            name="kichCo" value="{{ old('kichCo') }}">
+                            <option selected value="0">Lựa chọn kích thước bánh</option>
+                            @foreach ($i->options as $option)
+                                <option value="{{ $option->id }}">{{ $option->name }}</option>
+                            @endforeach
+                        </select></label><br>
+                    <label for="soluong" style="margin-top: 20px; margin-left:20%">Số lượng:
+                        <input type="text" name="soLuong" id="soluong" placeholder="Nhập số lượng 1, 2, 3,..."
+                            class="form-control" value="{{ old('soLuong') }}" style="width: 400px;">
+                    </label><br>
+
+                    <button class="button submit-button" type="submit" style="margin-top: 20px; margin-left:30%">Mua
+                        ngay</button>
+                </form>
+            </div>
+
+        </div>
         
     @endforeach
 

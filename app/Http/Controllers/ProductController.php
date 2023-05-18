@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Detail_cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
@@ -92,6 +93,41 @@ class ProductController extends Controller
 
         
     }
+
+    public function addProduct(Request $request){
+        $product_id = $request->product_id;
+        $kichCo = $request->kichCo;
+        $soLuong = $request->soLuong;
+
+
+        // $id_product_option =  Product_option::insertGetId([
+        //     'product_id' => $product_id,
+        //     'option_id' => $soLuong
+        // ]);
+        Detail_cart::insert([
+            'id_cart' => 1,
+            'id_product' => $product_id,
+            'id_product_option' => $kichCo,
+            'quantity' => $soLuong,
+
+        ]);
+
+        // Tìm category và product ban đầu
+        $all_category = Category::all();
+        $root_category = $all_category->where('parent_id', 0);
+        self::format_tree($root_category,$all_category);
+        $categories_lv_2 = Category::where('parent_id', '1')->get();
+        // $products = DB::table('products')->where('category_id', $categories_lv_2[0]->id)->get();
+        // truy vấn cái products option
+        $categoryId = $categories_lv_2[0]->id;
+        $products = Product::where('category_id', $categoryId)
+        ->with('options')
+        ->get();
+
+
+        return view('menu', compact('root_category', 'products'));
+    }
+
     
     /**
      * Show the form for creating a new resource.
