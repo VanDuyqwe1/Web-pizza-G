@@ -5,40 +5,40 @@
         <div class="content">
             <div class="container">
                 @php
-                function temp($categories, $parent_id = 0, $open = '')
-                {
-                    // mở chuỗi
-                    // $open .= '<ul>';
-                    // Duyệt mảng
-                    foreach ($categories as $item) {
-                        // nếu danh mục đó là con của thằng cha
-                        if ($item->parent_id == $parent_id) {
-                            // tạo
-                            $open .= '<li><a href="' . route('category-products-custom', ['id_category' => $item->id]) . '">' . $item->name . '</a>';
-                            if ($item->children->isNotEmpty()) {
-                                $open .= '<ul class="sub-menu">';
-                                $open = temp($item->children, $item->id, $open);
-                                $open .= '</ul>';
+                    function temp($categories, $parent_id = 0, $open = '')
+                    {
+                        // mở chuỗi
+                        // $open .= '<ul>';
+                        // Duyệt mảng
+                        foreach ($categories as $item) {
+                            // nếu danh mục đó là con của thằng cha
+                            if ($item->parent_id == $parent_id) {
+                                // tạo
+                                $open .= '<li><a href="' . route('category-products-custom', ['id_category' => $item->id]) . '">' . $item->name . '</a>';
+                                if ($item->children->isNotEmpty()) {
+                                    $open .= '<ul class="sub-menu">';
+                                    $open = temp($item->children, $item->id, $open);
+                                    $open .= '</ul>';
+                                }
+                                // đóng thẻ -> xong 1 cấp
+                                $open .= '</li>';
                             }
-                            // đóng thẻ -> xong 1 cấp
-                            $open .= '</li>';
                         }
+                        // đóng thẻ -> xong 1 cấp
+                        // $open .= '</ul>';
+                        echo $open;
                     }
-                    // đóng thẻ -> xong 1 cấp
-                    // $open .= '</ul>';
-                    echo $open;
-                }
-                
-            @endphp
+                    
+                @endphp
 
-            <ul class="nav">
-                {!! temp($root_category) !!}
-            </ul>
+                <ul class="nav">
+                    {!! temp($root_category) !!}
+                </ul>
             </div>
         </div>
 
     </div>
-   
+
     {{-- List product --}}
     {{-- {{ $categories_lv_2 }} --}}
     <div class="type-1604">
@@ -131,8 +131,33 @@
     </div>
 
 
+    @foreach ($products as $i)
+        {{-- detail product --}}
+        <div id="detail-product{{ $i->id }}" class="login">
+            <a href="#" class="close">
+                <div class="close">x</div>
+            </a>
+            <h1 class="login_title"> Chi tiết sản phẩm</h1>
 
-
+            <div class="detail">
+                <div class="row">
+                    <div class="col-md-4" style="padding-top: 10%">
+                        <img src="{{ asset('images/' . $i->image) }}" alt="">
+                    </div>
+                    <div class="col-md-8">
+                        <h2 style="padding-top: 20px;">{{ $i->name }}</h2>
+                        <b style="display: inline;">Số lượng đang bán: </b>
+                        <p>{{ $i->quantity }}</p>
+                        <b>Giá: </b>
+                        <p>{{ number_format($i->price) }} VND</p>
+                        <b>Mô tả: </b>
+                        <p>{{ $i->description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    @endforeach
 
 
     <div class="type-1605">
