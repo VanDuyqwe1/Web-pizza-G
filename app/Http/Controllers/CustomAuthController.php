@@ -84,12 +84,20 @@ class CustomAuthController extends Controller
     {
         if(Auth::check()){
 
-            $products = Product::all();
+            if(Auth::user()->role == 1){
 
-            $productBestSale = Product::orderBy('count_buy', 'desc')->limit(5)->get();
-            $productsLLatest = Product::orderBy('count_buy', 'asc')->limit(3)->get();
-    
-            return view('homepage', compact('productBestSale', 'productsLLatest'));
+                return view('admin.listing');
+            }
+            else
+            {
+                $products = Product::all();
+
+                $productBestSale = Product::orderBy('count_buy', 'desc')->limit(5)->get();
+                $productsLLatest = Product::inRandomOrder()->limit(9)->get();
+        
+                return view('homepage', compact('productBestSale', 'productsLLatest'));
+            }
+            
         }
   
         return redirect("login")->withSuccess('You are not allowed to access');

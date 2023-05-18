@@ -126,12 +126,7 @@
                                 <p>Apps</p>
                                 <span></span>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('admin.logout',['model'=>'Product'])}}">
-                                    <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                                    <span class="menu-title">LogOut</span>
-                                </a>
-                            </li>
+                            
                         </ul>
                     </nav>
 

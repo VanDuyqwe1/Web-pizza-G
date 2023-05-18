@@ -14,7 +14,7 @@ class Product extends Base
     {
         return $this->belongsToMany(Option::class, 'product_option', 'product_id', 'option_id');
     }
-	/*
+	
     public $title = "Sản phẩm";
     public function configs()
     {
@@ -83,5 +83,5 @@ class Product extends Base
         return array_merge($listingConfigs, $defaultListingConfigs);
 
     }
-    */
+    
 }

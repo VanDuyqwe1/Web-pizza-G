@@ -13,7 +13,7 @@ class ListingController extends Controller
 {
     public function index(Request $request, $modelName)
     {
-        $adminUser = Auth::guard('admin')->user();
+        //$adminUser = Auth::guard('admin')->user();
         //doi duong dan co 
         $model = '\App\Models\\' . ucfirst($modelName);
         $model =  new $model;
@@ -30,7 +30,7 @@ class ListingController extends Controller
 
       
         return view('admin.listing', [
-            'user' => $adminUser,
+            //'user' => $adminUser,
             'records' => $records,
             'configs' => $filterResult['configs'],
             'modelName' => $modelName,

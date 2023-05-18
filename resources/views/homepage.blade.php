@@ -95,10 +95,15 @@
     <div class="type-1611">
 
         <div class="container">
+            <h2 style="text-align: center; ">Các sản phẩm tiêu biểu</h2>
             <div class="row">
                 <div class="col-md-12">
                     <div class="collection">
                         <ul>
+                            
+                            @foreach ($productsLLatest as $item)
+                                
+                            
                             <li>
                                <div class="image-intagram">
                                    <a href="#">
@@ -106,83 +111,13 @@
                                        <p>Công ty 1</p>
                                    </a>
 
-                                   <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn1" class="thunho">
+                                   <img src="{{ asset('images/' . $item->image) }}" alt="itn1" class="thunho">
                                </div>
                             </li>
-                            <li>
-                                <div class="image-intagram">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                        <p>Công ty 2</p>
-                                    </a>
-
-                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn2" class="thunho">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image-intagram">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                        <p>Công ty 2</p>
-                                    </a>
-
-                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn3" class="thunho">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image-intagram">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                        <p>Công ty 2</p>
-                                    </a>
-                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn4" class="thunho">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image-intagram">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                        <p>Công ty 2</p>
-                                    </a>
-                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn5" class="thunho">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image-intagram">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                        <p>Công ty 2</p>
-                                    </a>
-                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn6" class="thunho">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image-intagram">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                        <p>Công ty 2</p>
-                                    </a>
-                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn7" class="thunho">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image-intagram">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                        <p>Công ty 2</p>
-                                    </a>
-                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn8" class="thunho">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image-intagram">
-                                    <a href="#">
-                                        <i class="fa fa-instagram"></i>
-                                        <p>Công ty 2</p>
-                                    </a>
-                                    <img src="{{ asset('images/FoodVVD.jpg') }}" alt="itn9" class="thunho">
-                                </div>
-                            </li>
+                          
+                           @endforeach
+                          
+                            
 
                         </ul>
                     </div>

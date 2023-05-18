@@ -6,7 +6,9 @@ use App\Models\Category;
 use App\Models\Detail_cart;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 
 class ProductController extends Controller
 {
@@ -98,6 +100,7 @@ class ProductController extends Controller
         $product_id = $request->product_id;
         $kichCo = $request->kichCo;
         $soLuong = $request->soLuong;
+        $id_cart = Auth::user()->id;
 
 
         // $id_product_option =  Product_option::insertGetId([
@@ -105,7 +108,7 @@ class ProductController extends Controller
         //     'option_id' => $soLuong
         // ]);
         Detail_cart::insert([
-            'id_cart' => 1,
+            'id_cart' => $id_cart,
             'id_product' => $product_id,
             'id_product_option' => $kichCo,
             'quantity' => $soLuong,
@@ -150,7 +153,15 @@ class ProductController extends Controller
 
     }
 
-    
+    public function homepage()
+    {
+        $products = Product::all();
+
+        $productBestSale = Product::orderBy('count_buy', 'desc')->limit(5)->get();
+        $productsLLatest = Product::inRandomOrder()->limit(9)->get();
+
+        return view('homepage', compact('productBestSale', 'productsLLatest'));
+    }
     /**
      * Show the form for creating a new resource.
      */
